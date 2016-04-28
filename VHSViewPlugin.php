@@ -4,6 +4,9 @@ require_once 'lib/PatchTemplateFactory.php';
 
 class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
 {
+
+	CONST URL = "osnabrueck.elan-ev.de/";
+	
 	public function __construct() {
 		
 		parent::__construct();
@@ -18,8 +21,12 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		global $auth;
 		$username = Request::get('username', $auth->auth['uname']);
 
-		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
-		
+		$referer = $_SERVER['REQUEST_URI'];
+		$path = explode(VHSViewPlugin::URL, $referer);
+		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
+			
+			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+		}
 		
 		
         // this really should not be here

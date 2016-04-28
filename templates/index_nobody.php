@@ -8,6 +8,7 @@
 
 <div class="index_main">
     <nav>
+        <h1><?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?></h1>
         <? foreach (Navigation::getItem('/login') as $key => $nav) : ?>
             <? if ($nav->isVisible()) : ?>
                 <? list($name, $title) = explode(' - ', $nav->getTitle()) ?>
@@ -27,7 +28,7 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -580px; top: -230px;'> 
+	<div id="login_badge" style='position: relative; right: -180px; top: -10px;'> 
  		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
  		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
  		</a> 
@@ -86,9 +87,9 @@
             </tr>
         </table>
 
-        <a href="http://www.vhs-papenburg.de/"> 
- 		<img src="<?=$GLOBALS['ASSETS_URL']?>images/logos/logoklein.gif" border="0"  <?=tooltip(_("Zur Homepage der VHS Papenburg"))?> >
-	 </a>
+        <a href="http://www.studip.de">
+            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein@2x.png" border="0" width="215" height="83"  <?= tooltip(_("Zur Portalseite")) ?> >
+        </a>
     </footer>
 
 
@@ -120,7 +121,7 @@ $items_reverse = array_reverse($items, true);
 
 <table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
 <tr>
-<td class="table_header_bold"><b>News und Infos</b> </td><tr>
+<td class="table_header_bold"><b>News und Infos</b></td><tr>
 
 <?
 foreach ($items_reverse as $item) {

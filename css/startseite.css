@@ -1,118 +1,120 @@
-/* Startseite und Loginseite */
 
 div.index_container div.index_main nav {
-    margin: 150px 60px 60px !important;
-    padding: 10px;
-    width: 324px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    margin: 160px 200px 200px 400px; !important;
+    padding: 15px !important;
+    width: 324px !important;
+}
+
+
+div.index_container div.index_main nav div.login_link {
+    display: inline-block;
+    padding-right: 10px !important;
+    vertical-align: top !important;
+    width: 150px !important;
 }
 
 #login_badge {
     position: relative !important;
-    right: -580px !important;
-    top: -230px !important;
+    right: -180px !important;
+    top: -10px !important;
 }
 
 div.index_container{
     margin: 0 auto !important;
-    width: 850px !important;
+    width: 800px !important;
 }
 div.index_container div.index_main {
-    background-size: 850px 600px !important;
+    background-size: 800px 580px !important;
 }
 
-table.logintable {
-    width: 750px !important;
-	margin: auto !important;
+#barTopStudip.studip-logo{
+	background-image: none, url("../images/logo-os.png");
+	background-size: 168px 57px;
+	height: 57px;
+    width: 168px;
 }
 
-#layout_page .index_container  .index_main footer {
-    margin-top: -120px !important;
-}
-
-/* Hintergrund */
-body {
-    background: #1975bc url("../images/background.png") repeat-x scroll 0 0 !important;
-	}
 
 
-/* Header und Icons */		
+/*Navigation*/
+
 
 #barTopFont {
-    color: #000 !important;
-    font-size: 18pt !important;
+    color: #000000 !important;
+    font-size: 16pt !important;
     font-weight: 400 !important;
 }
 
-#flex-header {
-    background-image: url("../images/background_header.png") !important;
-    position: relative !important;
+#header {
+    height: 120px;
 }
 
+body {
+	background-color: #ccc !important;
+    background-image: linear-gradient(to bottom, #ccc, #ccc) !important;
+	}
+	
+#flex-header {
+	 background-color: #ccc !important;
+	 background-image: url("../images/banner.jpg") !important;
+     position: relative !important;
+}
+
+#barTopStudip {
+    bottom: 46px !important;
+}
 
 #barTopMenu a:hover, #barTopMenu li.active a {
-    /*color: #fff !important;*/
+    color: #fff !important;
 }
+
 #barTopMenu a {
-    color: #1975bc !important;
-}
-#barTopStudip{
-    background-color: transparent !important;
-    background-image: none, url("../images/logos/logoklein.png") !important;
-    background-repeat: no-repeat !important;
-    background-size: 168px 60px !important;
-    border: 0 none !important;
-    color: transparent !important;
-    display: block !important;
-    font: 0px/0 a !important;
-    height: 60px !important;
-    text-shadow: none !important;
-    width: 168px !important;
+    color: #000 !important;
 }
 
-/* Infobox */
-
-.sidebar .sidebar-widget-header {
-    background: #d1e3f2 none repeat scroll 0 0 !important;
+#barTopMenu {
+    top: 60px !important;
 }
 
-/* Querbalken & Tabs*/
 
-#tabs li {
-    background-color: #1975bc !important;
-}
-#tabs li:hover {
-    background: #9ac2e1 none repeat scroll 0 0;
-}
-
-#barBottomright:before{
+#barBottommiddle:before, #barBottomLeft:before, #barBottomright:before{
 	display: none !important;
 }
 
-#barBottomLeft:before{
-	border-color: rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) #1975bc !important;
-}
-
-#barBottommiddle:before{
-	background-color: #1975bc !important;
-    background-image: linear-gradient(to right, #36598f, #1975bc)!important;
-}
-
-#barBottomContainer {
-    background-color: #1975bc !important;
-    border-color: #1975bc !important;
-}
-
-#barBottomLeft, #barBottommiddle, #barBottomright{
-	background-color: #1975bc !important;
+#barBottomLeft, #barBottommiddle, #barBottomright {
+    background-color: #cd1013 !important; 
     color: #fff !important;
 }
 
 .table_header_bold {
-    background-color: #1975bc !important;
-    border-color: #1975bc !important; 
+    background-color: #cd1013 !important;
+    border-color: #f0ede6 !important;
+}
+
+#tabs li {
+    background-color: #cd1013 !important;
+}
+
+#tabs a, #tabs span.quiet {
+    color: #fff;
+}
+
+#footer{
+	color: #fff !important;
 }
 
 #layout_footer {
-    background-color: #1975bc !important;
-    border-top: 1px solid #1975bc !important;
+    background-color: #cd1013 !important;
+    border-top: 1px solid #f0ede6 !important;
+}
+
+div.index_container div.index_main footer {
+    margin-top: -150px;
+}
+
+table.logintable {
+    background-image: url("../images/login.jpg");
+    background-size: 800px 350px;
 }

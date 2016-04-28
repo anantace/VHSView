@@ -1,0 +1,55 @@
+#barTopStudip {
+    bottom: 2px;
+}
+	
+	barBottomMiddle:before "raus"
+	
+#header {
+    height: 90px;
+}
+
+#barTopMenu {
+    top: 35px;
+}
+
+#barBottomContainer {
+    margin-top: 10px;
+}
+
+body {
+    background-color: #fff;
+    background-image: none;
+	}
+	
+#flex-header {
+    background-color: #fff;
+    background-image: none;
+}
+
+#barTopMenu > li:hover, #barTopMenu > li.active{
+    background-color: #899ab9;
+    border-radius: 200px;
+}
+
+.title {
+    margin-top: -25px;  
+}
+
+#barTopMenu a:hover, #barTopMenu li.active a {
+    color: #fff;
+}
+
+#barTopMenu > li.active a .title{
+	color: #fff;
+    font-size: 14px;
+    line-height: 3em;
+    margin-top: -25px;
+}
+
+barTopMenu a{
+	line-height: 3.0em;
+}
+#barTopMenu li {
+    min-width: 75px;
+	min-height: 75px;
+}

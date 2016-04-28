@@ -44,7 +44,7 @@
         </ul>
     </div>
     <!-- Stud.IP Logo -->
-    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank">
+    <a class="studip-logo" id="barTopStudip" href="http://www.vhs-os.de/" title="Homepage VHS Osnabrück" target="_blank">
         Stud.IP Homepage
     </a>
 </div>
