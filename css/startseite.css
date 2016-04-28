@@ -1,120 +1,293 @@
-
-div.index_container div.index_main nav {
-    background-color: rgba(255, 255, 255, 0.8);
-    display: inline-block;
-    margin: 160px 200px 200px 400px; !important;
-    padding: 15px !important;
-    width: 324px !important;
+#barTopFont { 
+color: #2a4c80 !important; 
+font-weight: 400 !important;
 }
 
-
-div.index_container div.index_main nav div.login_link {
-    display: inline-block;
-    padding-right: 10px !important;
-    vertical-align: top !important;
-    width: 150px !important;
+#barTopMenu a { 
+color: #2a4c80 !important; 
 }
 
-#login_badge {
-    position: relative !important;
-    right: -180px !important;
-    top: -10px !important;
-}
-
-div.index_container{
-    margin: 0 auto !important;
-    width: 800px !important;
-}
-div.index_container div.index_main {
-    background-size: 800px 580px !important;
-}
-
-#barTopStudip.studip-logo{
-	background-image: none, url("../images/logo-os.png");
-	background-size: 168px 57px;
-	height: 57px;
-    width: 168px;
-}
+#barTopMenu a:hover, 
+#barTopMenu li.active a { 
+color: #fff !important; 
+} 
 
 
-
-/*Navigation*/
-
-
-#barTopFont {
-    color: #000000 !important;
-    font-size: 16pt !important;
-    font-weight: 400 !important;
-}
-
-#header {
-    height: 120px;
-}
-
-body {
-	background-color: #ccc !important;
-    background-image: linear-gradient(to bottom, #ccc, #ccc) !important;
-	}
-	
-#flex-header {
-	 background-color: #ccc !important;
-	 background-image: url("../images/banner.jpg") !important;
-     position: relative !important;
-}
-
-#barTopStudip {
-    bottom: 46px !important;
-}
-
-#barTopMenu a:hover, #barTopMenu li.active a {
-    color: #fff !important;
-}
-
-#barTopMenu a {
-    color: #000 !important;
-}
-
-#barTopMenu {
-    top: 60px !important;
-}
-
-
-#barBottommiddle:before, #barBottomLeft:before, #barBottomright:before{
-	display: none !important;
-}
-
-#barBottomLeft, #barBottommiddle, #barBottomright {
-    background-color: #cd1013 !important; 
-    color: #fff !important;
-}
-
-.table_header_bold {
-    background-color: #cd1013 !important;
-    border-color: #f0ede6 !important;
-}
-
-#tabs li {
-    background-color: #cd1013 !important;
-}
-
-#tabs a, #tabs span.quiet {
-    color: #fff;
-}
-
-#footer{
-	color: #fff !important;
-}
-
-#layout_footer {
-    background-color: #cd1013 !important;
-    border-top: 1px solid #f0ede6 !important;
+body { 
+background-repeat: repeat !important; 
+background: url('../images/background.jpg') !important;
+margin: 0px !important;
 }
 
 div.index_container div.index_main footer {
-    margin-top: -150px;
+padding: 480px 5px 5px !important;
 }
 
-table.logintable {
-    background-image: url("../images/login.jpg");
-    background-size: 800px 350px;
+#flex-header { 
+background-image: url("../images/background_header.jpg") !important;
 }
+
+.table_header_bold {
+background-color: #2a4c80 !important;
+} 
+
+table.toolbar {
+border-top: 1px solid #2a4c80 !important;
+}
+
+td.toolbar,
+td.printhead {
+border-top: 1px solid #2a4c80 !important;
+}
+
+td.rahmen_table_row_odd {
+background-color: #d4dbe6 !important;
+}
+
+.zebra table.zebra > tbody > tr, 
+.zebra table.zebra-hover > tbody > tr { 
+background-color: #d4dbe6 !important; 
+} 
+
+table td.printhead2 { 
+border-top: 1px solid #2a4c80 !important; 
+} 
+
+table td.printhead3 {
+border-top: 1px solid #2a4c80 !important;
+}
+
+.settings thead th, 
+.settings tbody th {
+background-color: #2a4c80 !imoprtant;
+}
+
+.settings .divider > th, 
+.settings .divider > td {
+background-color: #4c7bc4 !important;
+}
+
+.settings .bordered.left {
+border-left: 1px solid #2a4c80 !important;
+}
+
+.settings .bordered.right {
+border-left: 1px solid #2a4c80 !important;
+}
+
+table.tree .header > td {
+border-top: 1px solid #2a4c80 !important;
+}
+
+table.default thead th {
+background-color: #d4dbe6 !important; 
+border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important; 
+}
+
+table.default tbody th {
+background-color: #d4dbe6 !important;
+border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important; 
+}
+
+table.default tfoot td {
+background-color: #d4dbe6 !important;
+}
+
+table.default2 caption {
+background-color: #2a4c80 !important; 
+}
+
+table.default2 tbody tr:hover td {
+background-color: rgba(42, 76, 128, 0.25) !important;
+}
+
+.studip_form > fieldset > legend {
+background-color: #d4dbe6 !important;
+border-top: 1px solid #2a4c80 !important;
+}
+
+.css-tree.selectable input[type=radio]:checked + label { 
+background: #aab7cc !important; 
+}
+
+#layout_footer {
+background-color: #2a4c80 !important;
+}
+
+#barBottom {
+background-color: #2a4c80 !important; 
+}
+
+#barBottomContainer {
+background-color: #2a4c80 !important;
+}
+
+#barBottomLeft, #barBottommiddle, 
+#barBottomright { 
+background-color: #2a4c80 !important;
+}
+
+#barBottomLeft:before { 
+border: 12px solid rgba(42, 76, 128, 0) !important; 
+border-left-color: #2a4c80 !important;
+}
+
+#barBottommiddle:before {
+background-color: #2a4c80 !important; 
+background-image: -moz-linear-gradient(left, #36598f, #2a4c80) !important; 
+background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#36598f), to(#2a4c80)) !important; 
+background-image: -webkit-linear-gradient(left, #36598f, #2a4c80) !important; 
+background-image: -o-linear-gradient(left, #36598f, #2a4c80) !important; 
+background-image: linear-gradient(to right, #36598f, #2a4c80) !important; 
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff36598f', endColorstr='#ff2a4c80', GradientType=1) !important;
+}
+
+
+#barBottomright:before {
+background-color: #2a4c80 !important; 
+background-image: -moz-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
+background-image: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(42, 76, 128, 0)), to(#2a4c80)) !important; 
+background-image: -webkit-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
+background-image: -o-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
+background-image: linear-gradient(to right, rgba(42, 76, 128, 0), #2a4c80) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002a4c80', endColorstr='#ff2a4c80', GradientType=1) !important; 
+background-color: rgba(42, 76, 128, 0) !important;
+}
+
+#notification_marker {
+background-color: #2a4c80 !important;
+}
+
+.studip-logo {
+background-image: none, url("../images/logos/studip-logo.svg") !important;
+}
+
+#barTopStudip { 
+bottom: 16px !important; 
+right: 50px !important; 
+} 
+
+td.infoboxrahmen {
+border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important;
+}
+
+.sidebar-widget-content {
+border-top: 1px solid #aab7cc !important;
+}
+
+.sidebar .sidebar-widget-placeholder {
+background: #d4dbe6 !important; 
+}
+
+.helpbar .helpbar-widgets > li {
+border-top: 1px solid #2a4c80 !important;
+}
+
+section.contentbox header {
+background-color: #d4dbe6 !important;
+}
+
+section.contentbox footer {
+border-color: #aab7cc !important; 
+}
+
+section.contentbox article { 
+border-color: #aab7cc !important; 
+}
+
+section.contentbox article footer {
+border-color: #aab7cc !important;
+}
+
+a.button, 
+button.button {
+background-color: #ccd4e1 !important;
+}
+
+.dropping {
+background-color: #2a4c80 !important;
+}
+
+
+#statusbar_container > .statusbar {
+background-color: #aab7cc !important;
+}
+
+#statusbar_container > .statusbar > .progress { 
+background-color: #2a4c80 !important;
+}
+
+.message_body {
+background-color: #d4dbe6 !important; 
+}
+
+#tabs li {
+background-color: #2a4c80 !important;
+}
+
+.cronjobs-edit > table > thead > tr > th { 
+background-color: #2a4c80 !important; 
+}
+
+.themen_list > * {
+background-color: #d4dbe6 !important;
+}
+
+#study_area_selection .even { 
+background-color: #d4dbe6 !important;
+}
+
+.studip-widget .widget-header {
+background-color: #d4dbe6 !important;
+}
+
+.addclip-widgets li { 
+border-top: 1px solid #2a4c80 !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane .ui-button { 
+background-color: #ccd4e1 !important;
+}
+
+blockquote {
+border-left: 3px solid #2a4c80 !important;
+}
+
+blockquote > .author {
+background-color: #2a4c80 !important;
+}
+
+div.overdiv div.title {
+background: #2a4c80 !important; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

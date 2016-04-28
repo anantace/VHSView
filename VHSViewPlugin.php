@@ -4,9 +4,6 @@ require_once 'lib/PatchTemplateFactory.php';
 
 class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
 {
-
-	CONST URL = "osnabrueck.elan-ev.de/";
-	
 	public function __construct() {
 		
 		parent::__construct();
@@ -21,18 +18,22 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		global $auth;
 		$username = Request::get('username', $auth->auth['uname']);
 
-		$referer = $_SERVER['REQUEST_URI'];
-		$path = explode(VHSViewPlugin::URL, $referer);
-		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
-			
-			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
-		}
+		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+		PageLayout::addStylesheet($this->getPluginUrl() . '/css/nivo-slider.css');
+		PageLayout::addScript($this->getPluginUrl() . '/javascript/slideshow.js');
+		PageLayout::addScript($this->getPluginUrl() . '/javascript/jquery.nivo.slider.js');
 		
 		
         // this really should not be here
         $username = preg_replace('/[^\w@.-]/', '', $username);
 		$my_about = new about($username, NULL);
         $my_about->get_user_details();
+		
+		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden
+		if (Navigation::hasItem('/mooc')){
+					Navigation::removeItem('/mooc');
+			}
+		
 		
 		if ($my_about->auth_user['perms'] != 'admin' && $my_about->auth_user['perms'] != 'root' && $my_about->auth_user['perms'] != 'nobody') {
 			if (Navigation::hasItem('/search')){

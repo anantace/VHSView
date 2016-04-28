@@ -7,9 +7,25 @@
 <? endif; ?>
 
 <div class="index_main">
-    <nav>
-        <h1><?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?></h1>
-        <? foreach (Navigation::getItem('/login') as $key => $nav) : ?>
+    <div id="wrapper" style="z-index:1; position:absolute; height:300px;"> 
+ 		        <div class="slider-wrapper"> 
+ 		                    <div id="slider" class="nivoSlider"> 
+ 		                <img src="plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/slide1.png" data-transition="fade">  
+ 		                <img src="plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/slide2.png" data-transition="fade">  
+ 		                <img src="plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/slide3.png" data-transition="fade">  
+ 		                <img src="plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/slide4.png" data-transition="fade"> 
+ 		            </div> 
+ 		        </div>   
+ 		        </div>   
+
+<nav style="position:absolute; z-index:2; margin-top:235px">
+   
+ 		         
+ 		        
+ 		     
+ 		       
+
+	<? foreach (Navigation::getItem('/login') as $key => $nav) : ?>
             <? if ($nav->isVisible()) : ?>
                 <? list($name, $title) = explode(' - ', $nav->getTitle()) ?>
                 <div class="login_link">
@@ -28,14 +44,15 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -180px; top: -10px;'> 
+	
+
+
+    </nav>
+    <div id="login_badge" style="position:absolute; z-index:2; margin-left: 550px; margin-top:110px"> 
  		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
  		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
  		</a> 
  	</div> 
-
-
-    </nav>
     <footer>
         <? if ($GLOBALS['UNI_LOGIN_ADD']) : ?>
             <div class="uni_login_add">
@@ -87,8 +104,8 @@
             </tr>
         </table>
 
-        <a href="http://www.studip.de">
-            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein@2x.png" border="0" width="215" height="83"  <?= tooltip(_("Zur Portalseite")) ?> >
+        <a href="http://www.kvhs-ammerland.de">
+            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein.jpg" border="0" width="83" height="83"  <?= tooltip(_("Zur Portalseite")) ?> >
         </a>
     </footer>
 
@@ -121,7 +138,7 @@ $items_reverse = array_reverse($items, true);
 
 <table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
 <tr>
-<td class="table_header_bold"><b>News und Infos</b></td><tr>
+<td class="table_header_bold"><b> News und Infos </b></td><tr>
 
 <?
 foreach ($items_reverse as $item) {
