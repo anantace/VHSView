@@ -27,12 +27,6 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		$my_about = new about($username, NULL);
         $my_about->get_user_details();
 		
-		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden
-		if (Navigation::hasItem('/mooc')){
-					Navigation::removeItem('/mooc');
-			}
-		
-		
 		if ($my_about->auth_user['perms'] != 'admin' && $my_about->auth_user['perms'] != 'root' && $my_about->auth_user['perms'] != 'nobody') {
 			if (Navigation::hasItem('/search')){
 				
