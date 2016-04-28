@@ -1,0 +1,103 @@
+
+div.index_container div.index_main nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    margin: 160px 200px 200px 400px; !important;
+    padding: 15px !important;
+    width: 324px !important;
+}
+
+
+div.index_container div.index_main nav div.login_link {
+    display: inline-block;
+    padding-right: 10px !important;
+    vertical-align: top !important;
+    width: 150px !important;
+}
+
+#login_badge {
+    position: relative !important;
+    right: -180px !important;
+    top: -10px !important;
+}
+
+div.index_container{
+    margin: 0 auto !important;
+    width: 800px !important;
+}
+div.index_container div.index_main {
+    background-size: 800px 580px !important;
+}
+
+#barTopStudip.studip-logo{
+	background-image: none, url("../images/logo-os.png");
+	background-size: 168px 57px;
+	height: 57px;
+    width: 168px;
+}
+
+
+
+/*Navigation*/
+
+
+#barTopFont {
+    color: #000000 !important;
+    font-size: 16pt !important;
+    font-weight: 400 !important;
+}
+
+body {
+	background-color: #f0ede6 !important;
+    background-image: linear-gradient(to bottom, #bebebc, #f0ede6) !important;
+	}
+	
+#flex-header {
+	background-color: #dcdad5 !important;
+    background-image: linear-gradient(to bottom, #f0ede6, #bebebc) !important;
+}
+
+#barTopMenu a:hover, #barTopMenu li.active a {
+    color: #fff !important;
+}
+
+#barTopMenu a {
+    color: #000 !important;
+}
+
+
+#barBottommiddle:before, #barBottomLeft:before, #barBottomright:before{
+	display: none !important;
+}
+
+#barBottomLeft, #barBottommiddle, #barBottomright {
+    background-color: #cd1013 !important; 
+    color: #ccc !important;
+}
+
+.table_header_bold {
+    background-color: #cd1013 !important;
+    border-color: #f0ede6 !important;
+}
+
+#tabs li {
+    background-color: #cd1013 !important;
+}
+
+#tabs a, #tabs span.quiet {
+    color: #ccc;
+}
+
+#layout_footer {
+    background-color: #cd1013 !important;
+    border-top: 1px solid #f0ede6 !important;
+}
+
+div.index_container div.index_main footer {
+    margin-top: -150px;
+}
+
+table.logintable {
+    background-image: url("../images/login.jpg");
+    background-size: 800px 350px;
+}

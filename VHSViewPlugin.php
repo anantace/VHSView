@@ -1,0 +1,172 @@
+<?php
+
+require_once 'lib/PatchTemplateFactory.php';
+
+class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
+{
+
+	CONST URL = "osnabrueck.elan-ev.de/";
+	
+	public function __construct() {
+		
+		parent::__construct();
+		
+		// instantiate patching template factory
+        $GLOBALS['template_factory'] = new VHS\PatchTemplateFactory(
+            $GLOBALS['template_factory'],
+            realpath($this->getPluginPath() . '/templates')
+        );
+		
+		
+		global $auth;
+		$username = Request::get('username', $auth->auth['uname']);
+
+		$referer = $_SERVER['REQUEST_URI'];
+		$path = explode(VHSViewPlugin::URL, $referer);
+		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
+			
+			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+		}
+		
+		
+        // this really should not be here
+        $username = preg_replace('/[^\w@.-]/', '', $username);
+		$my_about = new about($username, NULL);
+        $my_about->get_user_details();
+		
+		if ($my_about->auth_user['perms'] != 'admin' && $my_about->auth_user['perms'] != 'root' && $my_about->auth_user['perms'] != 'nobody') {
+			if (Navigation::hasItem('/search')){
+				
+					Navigation::removeItem('/search');
+				
+				
+			}
+			
+			if (Navigation::hasItem('/tools')){
+				if ($my_about->auth_user['perms'] != 'dozent') {
+					if (Navigation::hasItem('/tools/elearning')){
+						Navigation::removeItem('/tools/elearning');
+					}
+					if (Navigation::hasItem('/tools/evaluation')){
+						Navigation::removeItem('/tools/evaluation');
+					}
+				}
+			}
+	/**		
+			if (Navigation::hasItem('/course/main/courses')){
+			//	Navigation::removeItem('/course/main/courses');
+			}
+			
+			if (Navigation::hasItem('/course/main/schedule')){
+			//	Navigation::removeItem('/course/main/schedule');
+			}
+		**/	
+			if (Navigation::hasItem('/tools')){
+				Navigation::getItem('/tools')->setImage(NULL);
+			}
+			
+			if (Navigation::hasItem('/tools/rss')){
+				Navigation::removeItem('/tools/rss');
+			}
+			if (Navigation::hasItem('/tools/literature')){
+				Navigation::removeItem('/tools/literature');
+			}
+			
+			if (Navigation::hasItem('/profile/edit/study_data')){
+				Navigation::removeItem('/profile/edit/study_data');
+			}
+			if (Navigation::hasItem('/start/search')){
+				Navigation::removeItem('/start/search');
+			}
+			
+			if (Navigation::hasItem('/browse')){
+				
+				
+				$stmt = DBManager::get()->prepare("SELECT su.seminar_id FROM seminar_user su
+					WHERE su.user_id = ?");
+				$stmt->execute(array($GLOBALS['user']->id));
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$result = $stmt->fetch();
+					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
+				}
+				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
+					Navigation::removeItem('/browse');	
+				}
+				
+			}
+			
+			if (Navigation::hasItem('/course')){
+			
+			
+				$stmt = DBManager::get()->prepare("SELECT su.seminar_id FROM seminar_user su
+					WHERE su.user_id = ?");
+				$stmt->execute(array($GLOBALS['user']->id));
+				
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$result = $stmt->fetch();
+					Navigation::getItem('/course')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/course')->setTitle("Mein Kurs");
+				}
+				
+			}
+			
+			if (Navigation::hasItem('/start/my_courses')){
+			
+				if (Navigation::hasItem('/start/my_courses/browse')){
+					Navigation::removeItem('/start/my_courses/browse');
+				}
+				if (Navigation::hasItem('/start/my_courses/new_studygroup')){
+					Navigation::removeItem('/start/my_courses/new_studygroup');
+				}
+				if (Navigation::hasItem('/start/tools')){
+					Navigation::removeItem('/start/tools');
+				}
+				
+				$stmt = DBManager::get()->prepare("SELECT su.seminar_id FROM seminar_user su
+					WHERE su.user_id = ?");
+				$stmt->execute(array($GLOBALS['user']->id));
+				
+				$count = $stmt->rowCount();
+				if($count == 1){
+					$result = $stmt->fetch();
+					Navigation::getItem('/start/my_courses')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/start/my_courses')->setTitle("Mein Kurs");
+				}
+				if($count == 0){
+					Navigation::removeItem('/start/my_courses');	
+				} 
+				if($count > 1){
+					Navigation::getItem('/start/my_courses')->setTitle("Kurse");
+				}
+				
+			}
+			
+			if (Navigation::hasItem('/start/community/browse')){
+					Navigation::removeItem('/start/community/browse');
+			}
+		
+			if (Navigation::hasItem('/start/community/score')){
+					Navigation::removeItem('/start/community/score');
+			}
+		}
+		
+		
+		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
+		if ($my_about->auth_user['perms'] == 'nobody'){
+			if (Navigation::hasItem('/course/main/courses')){
+				Navigation::removeItem('/course/main/courses');
+			}
+			
+			if (Navigation::hasItem('/course/main/schedule')){
+				Navigation::removeItem('/course/main/schedule');
+			}
+		}
+
+		
+
+		
+	}
+}
