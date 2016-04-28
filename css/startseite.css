@@ -2,51 +2,45 @@
 
 #login_badge {
     position: relative !important;
-    right: -720px !important;
-    top: -50px !important;
+    right: -790px !important;
+    top: -210px !important;
 }
 
 div.index_container{
     margin: 0 auto !important;
-    width: 936px !important;
+    width: 1000px !important;
 }
 div.index_container div.index_main {
-    background-size: 936px 550px !important;
+    background-size: 1000px 258px !important;
 }
 
 table.logintable {
     width: 750px !important;
-	margin-left: auto !important;
-    margin-right: auto !important;
+	margin: auto !important;
 }
 
+#layout_page .index_container  .index_main footer {
+    margin-top: -130px !important;
+}
 
 /* Hintergrund */
 body {
-    background: #d3d3d4 none repeat-x scroll 0 0 !important;
-    background-image: none !important;
+    background: #97bee2 url("../images/background.png") repeat-x scroll 0 0 !important;
 	}
 
 
-/* Header und Icons */	
+/* Header und Icons */		
 
-#barTopStudip {
-    background: #1585b3 none repeat scroll 0 0 !important;
-    text-align: center !important;
-    top: 0px !important;
-	right: 0px !important;
-	bottom: 0px !important;
-	position: relative !important;
-}	
-	
-#flex-header {
-    background-color: #fff !important;
-    background-image: none !important;
+
+#barTopFont {
+    color: #3f71a0 !important;
+    font-size: 16pt !important;
+    font-weight: 400 !important;
 }
 
-#header {
-    background: #d3d3d4 none repeat-x scroll 0 0 !important;
-    height: 80px !important;
+#flex-header {
+    background-image: url("../images/background_header.png") !important;
+    position: relative !important;
 }
 
 
@@ -54,25 +48,15 @@ body {
     color: #fff !important;
 }
 #barTopMenu a {
-    color: #1585b3 !important;
+    color: #3f71a0 !important;
 }
 
-#barTopMenu {
-    top: 25px !important;
-}
 
 
 /* Querbalken & Tabs*/
 
 #tabs li {
-    background-color: #1585b3 !important;
-}
-
-#tabs li:hover {
-    background: #50afd7 none repeat scroll 0 0 !important;
-}
-#tabs li.current:hover {
-    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #eeeeee, #ffffff) repeat scroll 0 0 !important;
+    background-color: #3f71a0 !important;
 }
 
 #barBottomright:before{
@@ -80,30 +64,30 @@ body {
 }
 
 #barBottomLeft:before{
-	border-color: rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) #1585b3 !important;
+	border-color: rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) #3f71a0 !important;
 }
 
 #barBottommiddle:before{
-	background-color: #1585b3 !important;
-    background-image: linear-gradient(to right, #36598f, #1585b3)!important;
+	background-color: #3f71a0 !important;
+    background-image: linear-gradient(to right, #36598f, #3f71a0)!important;
 }
 
 #barBottomContainer {
-    background-color: #1585b3 !important;
-    border-color: #1585b3 !important;
+    background-color: #3f71a0 !important;
+    border-color: #3f71a0 !important;
 }
 
 #barBottomLeft, #barBottommiddle, #barBottomright{
-	background-color: #1585b3 !important;
+	background-color: #3f71a0 !important;
     color: #fff !important;
 }
 
 .table_header_bold {
-    background-color: #1585b3 !important;
-    border-color: #1585b3 !important; 
+    background-color: #3f71a0 !important;
+    border-color: #3f71a0 !important; 
 }
 
 #layout_footer {
-    background-color: #1585b3 !important;
-    border-top: 1px solid #1585b3 !important;
+    background-color: #3f71a0 !important;
+    border-top: 1px solid #3f71a0 !important;
 }

@@ -2,24 +2,15 @@
 # Lifter010: TODO
 ?>
 <!-- Start Header -->
-
-<div id="barTopStudip">  
-       <a href="http://www.vhs-norden.net/t3//" title="Homepage der KVHS Norden">  
-             <img src="<?=$GLOBALS['ASSETS_URL']?>images/logos/banner_kvhs-norden.jpg" alt="Homepage der KVHS Norden">  
-       </a>  
-</div> 
-
 <div id="flex-header">
-
-    <!-- Stud.IP Logo --> 
-
     <div id="header">
-        <!--<div id="barTopFont"> 
-                <?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?> 
-            </div> 
+        <!--<div id='barTopLogo'>
+            <img src="<?=$GLOBALS['ASSETS_URL']?>images/logos/logoneu.jpg" alt="Logo Uni Göttingen">
+        </div>
          -->
-
-        
+        <div id="barTopFont">
+        <?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?>
+        </div>
         <? SkipLinks::addIndex(_("Hauptnavigation"), 'barTopMenu', 1); ?>
         <ul id="barTopMenu" role="navigation">
         <? $accesskey = 0 ?>
@@ -52,7 +43,10 @@
         <? endforeach ?>
         </ul>
     </div>
-   
+    <!-- Stud.IP Logo -->
+    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank">
+        Stud.IP Homepage
+    </a>
 </div>
 
 <!-- Leiste unten -->

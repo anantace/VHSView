@@ -28,7 +28,7 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -560px; top: -160px;'> 
+	<div id="login_badge" style='position: relative; right: -790px; top: -210px;'> 
  		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
  		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
  		</a> 
@@ -87,11 +87,10 @@
             </tr>
         </table>
 
-        <a href="http://www.studip.de">
-            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein@2x.png" border="0" width="215" height="83"  <?= tooltip(_("Zur Portalseite")) ?> >
+        <a href="http://www.vhs-lingen.de">
+            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein.gif" border="0" width="191" height="100"  <?= tooltip(_("Zur Homepage der VHS Lingen")) ?> >
         </a>
     </footer>
-
 
 
 <? UrlHelper::bindLinkParam('index_data', $index_data); 
@@ -104,6 +103,7 @@
 ?> 
 
 </div>
+
 
 <?
 define('MAGPIE_CACHE_DIR', 'cache');
@@ -121,7 +121,7 @@ $items_reverse = array_reverse($items, true);
 
 <table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
 <tr>
-<td class="table_header_bold"> News und Infos </td><tr>
+<td class="table_header_bold"><b>News und Infos</b></td><tr>
 
 <?
 foreach ($items_reverse as $item) {
