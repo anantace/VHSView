@@ -4,9 +4,6 @@ require_once 'lib/PatchTemplateFactory.php';
 
 class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
 {
-
-	CONST URL = "osnabrueck.elan-ev.de/";
-	
 	public function __construct() {
 		
 		parent::__construct();
@@ -18,23 +15,20 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
         );
 		
 		
-		global $auth;
+		global $perm;
 		$username = Request::get('username', $auth->auth['uname']);
 
-		$referer = $_SERVER['REQUEST_URI'];
-		$path = explode(VHSViewPlugin::URL, $referer);
-		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
-			
-			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
-		}
+		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+                PageLayout::addStylesheet($this->getPluginUrl() . '/css/courseware.css');
+
+		
+		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden
+		if (Navigation::hasItem('/mooc')){
+					Navigation::removeItem('/mooc');
+			}
 		
 		
-        // this really should not be here
-        $username = preg_replace('/[^\w@.-]/', '', $username);
-		$my_about = new about($username, NULL);
-        $my_about->get_user_details();
-		
-		if ($my_about->auth_user['perms'] != 'admin' && $my_about->auth_user['perms'] != 'root' && $my_about->auth_user['perms'] != 'nobody') {
+		if (!$perm->have_perm('admin') && $perm->get_perm() != 'nobody') {
 			if (Navigation::hasItem('/search')){
 				
 					Navigation::removeItem('/search');
@@ -43,7 +37,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 			
 			if (Navigation::hasItem('/tools')){
-				if ($my_about->auth_user['perms'] != 'dozent') {
+				if ( !$perm->have_perm('dozent')) {
 					if (Navigation::hasItem('/tools/elearning')){
 						Navigation::removeItem('/tools/elearning');
 					}
@@ -91,7 +85,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
 					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
 				}
-				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
+				if($count == 0 && !$perm->have_perm('tutor')){
 					Navigation::removeItem('/browse');	
 				}
 				
@@ -155,7 +149,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		
 		
 		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
-		if ($my_about->auth_user['perms'] == 'nobody'){
+		/**if ($my_about->auth_user['perms'] == 'nobody'){
 			if (Navigation::hasItem('/course/main/courses')){
 				Navigation::removeItem('/course/main/courses');
 			}
@@ -164,6 +158,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				Navigation::removeItem('/course/main/schedule');
 			}
 		}
+                 * 
+                 */
 
 		
 
