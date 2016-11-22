@@ -40,7 +40,7 @@ body {
 }	
 	
 #flex-header {
-    background-color: #fff !important;
+    background-color: #d3d3d4 !important;
     background-image: none !important;
 }
 
@@ -64,15 +64,17 @@ body {
 
 /* Querbalken & Tabs*/
 
-#tabs li {
-    background-color: #1585b3 !important;
-}
+
 
 #tabs li:hover {
     background: #50afd7 none repeat scroll 0 0 !important;
 }
 #tabs li.current:hover {
-    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #eeeeee, #ffffff) repeat scroll 0 0 !important;
+    background-color: #fff !important;
+}
+
+#tabs li.current{
+    background-color: #fff !important;
 }
 
 #barBottomright:before{

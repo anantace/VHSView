@@ -98,7 +98,7 @@
  		 
  		    //Auf und Zuklappen News 
  		    require_once 'lib/showNews.inc.php'; 
- 		    process_news_commands($index_data); 
+ 		    //process_news_commands($index_data); 
  		 
  		    show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
 ?> 
