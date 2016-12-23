@@ -225,6 +225,14 @@ background-color: #d4dbe6 !important;
 background-color: #2a4c80 !important;
 }
 
+#tabs li.current, #tabs li.current:hover, #tabs li:hover {
+background-color: #fff !important;
+}
+
+#tabs li:hover a {
+color: #000 !important;
+}
+
 .cronjobs-edit > table > thead > tr > th { 
 background-color: #2a4c80 !important; 
 }

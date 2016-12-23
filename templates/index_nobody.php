@@ -113,10 +113,10 @@
 <? UrlHelper::bindLinkParam('index_data', $index_data); 
  		 
  		    //Auf und Zuklappen News 
- 		    require_once 'lib/showNews.inc.php'; 
- 		    process_news_commands($index_data); 
+ 		    //require_once 'lib/showNews.inc.php'; 
+ 		    //process_news_commands($index_data); 
  		 
- 		    show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
+ 		    //show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
 ?> 
 
 </div>

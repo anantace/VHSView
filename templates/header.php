@@ -18,18 +18,19 @@
                 <? if ($nav->isVisible(true)) : ?>
                     <?
                     $accesskey_attr = '';
-                    $image          = $nav->getImage();
+                    $image = $nav->getImage();
+                    $link_attributes = $nav->getLinkAttributes();
 
                     if ($accesskey_enabled) {
                         $accesskey      = ++$accesskey % 10;
                         $accesskey_attr = 'accesskey="' . $accesskey . '"';
-                        $image['title'] .= "  [ALT] + $accesskey";
+                        $link_attributes['title'] .= "  [ALT] + $accesskey";
                     }
 
                     ?>
                     <li id="nav_<?= $path ?>"<? if ($nav->isActive()) : ?> class="active"<? endif ?>>
-                        <a href="<?= URLHelper::getLink($nav->getURL(), $link_params) ?>" title="<?= $image['title'] ?>" <?= $accesskey_attr ?> data-badge="<?= (int)$nav->getBadgeNumber() ?>">
-                            <img class="headericon original" src="<?= $image['src'] ?>">
+                        <a href="<?= URLHelper::getLink($nav->getURL(), $link_params) ?>" title="<?= $link_attributes['title'] ?>" <?= $accesskey_attr ?> data-badge="<?= (int)$nav->getBadgeNumber() ?>">
+                            <?= $image->asImg(['class' => 'headericon original']) ?>
                             <br>
                             <?= htmlReady($nav->getTitle()) ?>
                         </a>
@@ -95,7 +96,7 @@
                     <li <? if ($nav->isActive()) echo 'class="active"'; ?>>
                         <a
                             <? if (is_internal_url($url = $nav->getURL())) : ?>
-                                href="<?= URLHelper::getLink($url, $link_params) ?>"
+                                href="<?= URLHelper::getLink($url) ?>"
                             <? else: ?>
                                 href="<?= htmlReady($url) ?>" target="_blank"
                             <? endif; ?>
