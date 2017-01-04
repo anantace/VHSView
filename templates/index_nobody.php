@@ -97,16 +97,16 @@
 <? UrlHelper::bindLinkParam('index_data', $index_data); 
  		 
  		    //Auf und Zuklappen News 
- 		    require_once 'lib/showNews.inc.php'; 
+ 		    //require_once 'lib/showNews.inc.php'; 
  		    //process_news_commands($index_data); 
  		 
- 		    show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
+ 		    //show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
 ?> 
 
 </div>
 
 <?
-define('MAGPIE_CACHE_DIR', 'cache');
+define('MAGPIE_CACHE_DIR', $GLOBALS['TMP_PATH'].'/cache');
 define('MAGPIE_CACHE_AGE', '600');
 require_once('lib/rss_fetch.inc');
 $url = 'http://el4.elan-ev.de/rss.php?id=70cefd1e80398bb20ff599636546cdff';
