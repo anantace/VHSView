@@ -13,6 +13,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
             $GLOBALS['template_factory'],
             realpath($this->getPluginPath() . '/templates')
         );
+        
+        PageLayout::addScript($this->getPluginURL().'/js/script.js');
 		
 		
 		global $perm, $user;
@@ -160,8 +162,37 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
                  * 
                  */
 
-		
-
+            if (is_object($user) && $user->username == 'gastnutzer_norden' ) {	
+                //echo '<pre>';
+                //var_dump(Navigation::getItem('/course')->getSubNavigation());
+                //echo '</pre>';
+                PageLayout::addStylesheet($this->getPluginUrl() . '/css/gastuser.css');
+                
+                if (Navigation::hasItem('/start')){
+				Navigation::removeItem('/start');
+			}
+                if (Navigation::hasItem('/messaging')){
+				Navigation::removeItem('/messaging');
+			}
+                if (Navigation::hasItem('/community')){
+				Navigation::removeItem('/community');
+			}
+                if (Navigation::hasItem('/profile')){
+				Navigation::removeItem('/profile');
+			}
+                if (Navigation::hasItem('/tools/rss')){
+                        Navigation::removeItem('/tools/rss');
+                }
+                 if (Navigation::hasItem('/calendar')){
+                        Navigation::removeItem('/calendar');
+                }
+                if (Navigation::hasItem('/course')){
+                    Navigation::getItem('/course')->setURL("norden3.4/public/plugins.php/courseware/courseware?cid=35749fa1e8242185fd9809919134d07f");
+                    Navigation::getItem('/course')->setTitle("KONZ");
+                    Navigation::getItem('/course')->removeSubNavigation('main');
+                    Navigation::getItem('/course')->removeSubNavigation('scm');
+                }
+            }
 		
 	}
 }
