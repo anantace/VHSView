@@ -48,11 +48,7 @@
 
 
     </nav>
-    <div id="login_badge" style="position:absolute; z-index:2; margin-left: 550px; margin-top:110px"> 
- 		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
- 		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
- 		</a> 
- 	</div> 
+   
     <footer>
         <? if ($GLOBALS['UNI_LOGIN_ADD']) : ?>
             <div class="uni_login_add">

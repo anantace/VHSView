@@ -15,22 +15,22 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
         );
 		
 		
-		global $perm;
+		global $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
 
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/nivo-slider.css');
 		PageLayout::addScript($this->getPluginUrl() . '/javascript/slideshow.js');
 		PageLayout::addScript($this->getPluginUrl() . '/javascript/jquery.nivo.slider.js');
-				
-		
+
 		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden
 		if (Navigation::hasItem('/mooc')){
 					Navigation::removeItem('/mooc');
 			}
 		
 		
-		if (!$perm->have_perm('admin') && $perm->get_perm() != 'nobody') {
+		if (!$perm->have_perm('admin') && $user->id != 'nobody') {
+ 
 			if (Navigation::hasItem('/search')){
                             Navigation::removeItem('/search');	
 			}
@@ -147,8 +147,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		}
 		
 		
-		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
-		if ($perm->get_perm() == 'nobody'){
+		//für nobody/nicht eingeloggt
+		if (!is_object($user)){
 			if (Navigation::hasItem('/course/main/courses')){
 				Navigation::removeItem('/course/main/courses');
 			}
