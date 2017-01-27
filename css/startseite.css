@@ -14,6 +14,10 @@ div.index_container div.index_main {
     background-size: 936px 550px !important;
 }
 
+div.index_container div.index_main nav{
+    margin-top: 160px !important;
+}
+
 table.logintable {
     width: 750px !important;
 	margin-left: auto !important;
