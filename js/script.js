@@ -13,7 +13,7 @@ function addCoursewareVisibleElements(element){
     //var url = "localhost/norden3.4/public/plugins_packages/asudau@elan-ev.de/VHSViewPlugin/visibility.php?id=" + $(element).closest('section').prop('id');
     //
 //Durch Aufruf der URL mit übergebener Block ID wird letztere in der Datenbank wechselweise als (un-)sichtbar markiert
-    var url = "http://norden.elan-ev.de/courseware_visible.php?id=" + $(element).closest('section').prop('id');
+    var url = "https://norden.elan-ev.de/courseware_visible.php?id=" + $(element).closest('section').prop('id');
     //var url = "http://localhost/norden3.4/public/test.php?id=" + $(element).closest('section').prop('id');
     $.get(url, function(data, status){
     });
@@ -26,7 +26,7 @@ function hideInvisibleBlocks(){
     //mit entsprechenden ids aus der DB ein CSS hinzugefügt das diese verbirgt
     if (!window.location.href.includes("#author")){
    
-      var url = "http://norden.elan-ev.de/courseware_visible.php?id=all";
+      var url = "https://norden.elan-ev.de/courseware_visible.php?id=all";
       //var url = "http://localhost/norden3.4/public/test.php?id=all";
       $.get(url, function(invisibleBlocks, status){
         if( document.styleSheets ) {
@@ -56,7 +56,7 @@ function hideInvisibleBlocks(){
     } else {
         //da es eine Weile dauert bis alles geladen ist ist hier ein Timeout nötig
         setTimeout(function(){
-            var url = "http://norden.elan-ev.de/courseware_visible.php?id=all";
+            var url = "https://norden.elan-ev.de/courseware_visible.php?id=all";
             $.get(url, function(invisibleBlocks, status){
                 var ids = String(invisibleBlocks).split(';');
                 var length = ids.length;
