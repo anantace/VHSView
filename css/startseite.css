@@ -1,115 +1,47 @@
-/* Startseite und Loginseite */
-
-#login_badge {
-    position: relative !important;
-    right: -720px !important;
-    top: -50px !important;
+ #barTopStudip {
+    background-image: url('images/logos/SVGlogoAI.svg') !important;
+    bottom: 30px !important;
+    right: 40px !important;
+    width: 300px !important;
+    height: 110px !important;
+    background-size: cover;
 }
-
-div.index_container{
-    margin: 0 auto !important;
-    width: 936px !important;
-}
-div.index_container div.index_main {
-    background-size: 936px 550px !important;
-}
-
-div.index_container div.index_main nav{
-    margin-top: 160px !important;
-}
-
-table.logintable {
-    width: 750px !important;
-	margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-
-/* Hintergrund */
-body {
-    background: #d3d3d4 none repeat-x scroll 0 0 !important;
-    background-image: none !important;
-	}
-
-
-/* Header und Icons */	
-
-#barTopStudip {
-    background: #1585b3 none repeat scroll 0 0 !important;
-    text-align: center !important;
-    top: 0px !important;
-	right: 0px !important;
-	bottom: 0px !important;
-	position: relative !important;
-}	
-	
 #flex-header {
-    background-color: #d3d3d4 !important;
+    background-color: #ccc !important;
     background-image: none !important;
 }
 
-#header {
-    background: #d3d3d4 none repeat-x scroll 0 0 !important;
-    height: 80px !important;
+body {
+    background-color: #ccc !important;
+    background-image: none !important;
 }
 
-
-#barTopMenu a:hover, #barTopMenu li.active a {
-    color: #fff !important;
-}
-#barTopMenu a {
-    color: #1585b3 !important;
+#barBottomLeft, #barBottommiddle, #barBottomright {
+    background-color: #265797 !important;
 }
 
-#barTopMenu {
-    top: 25px !important;
+#tabs li, .smiley-tabs li {
+    background-color: #265797 !important;
 }
 
-
-/* Querbalken & Tabs*/
-
-
-
-#tabs li:hover {
-    background: #50afd7 none repeat scroll 0 0 !important;
-}
-#tabs li.current:hover {
+#tabs li.current, #tabs li.current:hover, .smiley-tabs li.current, .smiley-tabs li.current:hover {
     background-color: #fff !important;
 }
 
-#tabs li.current{
-    background-color: #fff !important;
-}
-
-#barBottomright:before{
-	display: none !important;
-}
-
-#barBottomLeft:before{
-	border-color: rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) #1585b3 !important;
-}
-
-#barBottommiddle:before{
-	background-color: #1585b3 !important;
-    background-image: linear-gradient(to right, #36598f, #1585b3)!important;
+#barBottomLeft::before, #barBottommiddle::before, #barBottomright::before{
+    background-color: #265797 !important;
+    background-image: none !important;
+    border-left-color: #265797 !important;
 }
 
 #barBottomContainer {
-    background-color: #1585b3 !important;
-    border-color: #1585b3 !important;
+    background-color: #265797 !important;
 }
 
-#barBottomLeft, #barBottommiddle, #barBottomright{
-	background-color: #1585b3 !important;
-    color: #fff !important;
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    filter: brightness(1000%) !important;
 }
 
-.table_header_bold {
-    background-color: #1585b3 !important;
-    border-color: #1585b3 !important; 
-}
-
-#layout_footer {
-    background-color: #1585b3 !important;
-    border-top: 1px solid #1585b3 !important;
+#barTopMenu a {
+    color: #265797 !important;
 }

@@ -1,6 +1,6 @@
-pluginclassname=VHSViewPlugin
-pluginname=VHSViewPlugin
-origin=asudau@elan-ev.de
-version=1.2-norden-courseware-authplugin
-studipMinVersion=3.4
+pluginclassname=MITPlugin
+pluginname=MITViewPlugin
+origin=elanev
+version=1.0
+studipMinVersion=3.3
 studipMaxVersion=3.5
