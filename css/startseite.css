@@ -269,7 +269,9 @@ div.overdiv div.title {
 background: #2a4c80 !important; 
 }
 
-
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    filter: brightness(2000%) !important;
+}
 
 
 
