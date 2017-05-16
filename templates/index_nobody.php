@@ -28,12 +28,6 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -560px; top: -160px;'> 
- 		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
- 		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
- 		</a> 
- 	</div> 
-
 
     </nav>
     <footer>
