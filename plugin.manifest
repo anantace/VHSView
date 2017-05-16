@@ -1,5 +1,5 @@
-pluginclassname=MITPlugin
-pluginname=MITViewPlugin
+pluginclassname=GreifCoachingPlugin
+pluginname=GreifCoachingPlugin
 origin=elanev
 version=1.0
 studipMinVersion=3.3

@@ -2,7 +2,7 @@
 
 require_once 'lib/PatchTemplateFactory.php';
 
-class MITPlugin extends StudipPlugin implements SystemPlugin 
+class GreifCoachingPlugin extends StudipPlugin implements SystemPlugin 
 {
 	public function __construct() {
 		
@@ -16,8 +16,9 @@ class MITPlugin extends StudipPlugin implements SystemPlugin
 
             $referer = $_SERVER['REQUEST_URI'];
             
-            PageLayout::addScript($this->getPluginURL().'/js/script.js');
-            PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+            //PageLayout::addScript($this->getPluginURL().'/js/script.js');
+            //PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
+            PageLayout::addStylesheet($this->getPluginUrl() . '/css/coursewaremobile.css');
 
             global $perm, $user;
             //$username = Request::get('username', $auth->auth['uname']);
@@ -35,7 +36,7 @@ class MITPlugin extends StudipPlugin implements SystemPlugin
                 }
                 
                 PageLayout::addStylesheet($this->getPluginUrl() . '/css/autor.css');
-
+                /**
                  if (Navigation::hasItem('/start')){
                                     //Navigation::removeItem('/start');
                             }
@@ -57,7 +58,7 @@ class MITPlugin extends StudipPlugin implements SystemPlugin
                     if (Navigation::hasItem('/tools')){
                                     Navigation::removeItem('/tools');
                     }
-
+                **/
             }
 
 

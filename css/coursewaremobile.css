@@ -1,0 +1,9 @@
+
+@media screen and (max-width: 800px) {
+    section#courseware{
+        padding-left: 30px !important;
+    }
+    section#courseware > aside {
+        position: relative !important;
+    }
+}
