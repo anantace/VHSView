@@ -1,0 +1,13 @@
+section.VideoBlock .block-content .video-wrapper.aspect-169 {
+    padding-bottom: 73.25% !important;
+}
+
+
+@media screen and (max-width: 800px) {
+   section#courseware{
+        padding-left: 30px !important;
+    }
+    section#courseware > aside {
+        position: relative !important;
+    }
+}
