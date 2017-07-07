@@ -1,34 +1,44 @@
 <?php
 
-require_once 'lib/PatchTemplateFactory.php';
+require_once 'lib/classes/DBManager.class.php';
 
 class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
 {
 	public function __construct() {
+	
+	    parent::__construct();
+	
+	    PageLayout::addStylesheet($this->getPluginURL() . '/assets/courseware.css');
+	    PageLayout::addScript($this->getPluginURL() . '/assets/script.js');
 		
-		parent::__construct();
-		
-		// instantiate patching template factory
-        $GLOBALS['template_factory'] = new VHS\PatchTemplateFactory(
-            $GLOBALS['template_factory'],
-            realpath($this->getPluginPath() . '/templates')
-        );
-		
-		
-		global $perm;
+		global $auth, $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
 
-		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
-                PageLayout::addStylesheet($this->getPluginUrl() . '/css/courseware.css');
+		
 
-		
-		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden
-		if (Navigation::hasItem('/mooc')){
-					Navigation::removeItem('/mooc');
+	 $course_id = $_SESSION['SessSemName'][1];
+
+
+	 if (Navigation::hasItem('/course/mooc_courseware')){
+			$query = "SELECT content AS value
+			FROM datafields_entries
+			WHERE datafield_id = 'c7f844e04a4c354e1db9a9e78859e58c'
+			AND range_id = '" . $course_id . "'
+			AND content = '1'";
+                            
+			$statement = DBManager::get()->prepare($query);
+			$statement->execute();
+			$courseware = $statement->fetchAll(PDO::FETCH_ASSOC);
+			
+			if (count($courseware)){
+				Navigation::removeItem('/course/mooc_courseware');
 			}
-		
-		
-		if (!$perm->have_perm('admin') && $perm->get_perm() != 'nobody') {
+	}
+
+	//Navigation::getItem('/search')->setTitle($course_id);
+
+
+		if ($perm->have_perm() != 'admin' && $perm->have_perm()  != 'root' && $user->id != 'nobody') {
 			if (Navigation::hasItem('/search')){
 				
 					Navigation::removeItem('/search');
@@ -37,7 +47,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 			
 			if (Navigation::hasItem('/tools')){
-				if ( !$perm->have_perm('dozent')) {
+				if ($perm->have_perm() != 'dozent') {
 					if (Navigation::hasItem('/tools/elearning')){
 						Navigation::removeItem('/tools/elearning');
 					}
@@ -85,7 +95,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
 					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
 				}
-				if($count == 0 && !$perm->have_perm('tutor')){
+				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
 					Navigation::removeItem('/browse');	
 				}
 				
@@ -149,7 +159,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		
 		
 		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
-		/**if ($my_about->auth_user['perms'] == 'nobody'){
+		if ($user->id == 'nobody'){
 			if (Navigation::hasItem('/course/main/courses')){
 				Navigation::removeItem('/course/main/courses');
 			}
@@ -158,8 +168,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				Navigation::removeItem('/course/main/schedule');
 			}
 		}
-                 * 
-                 */
+
+	
 
 		
 
