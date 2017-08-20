@@ -6,6 +6,14 @@
     top: -210px !important;
 }
 
+#tabs li.current {
+    background-image: linear-gradient(to bottom, #eeeeee, #ffffff) !important;
+}
+
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    -webkit-filter: brightness(1000%) !important;
+}
+
 div.index_container{
     margin: 0 auto !important;
     width: 1000px !important;

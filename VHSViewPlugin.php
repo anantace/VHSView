@@ -15,19 +15,13 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
         );
 		
 		
-		global $auth;
-		$username = Request::get('username', $auth->auth['uname']);
+	global $perm, $user;
+	$username = Request::get('username', $auth->auth['uname']);
 
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		
 		
-		
-        // this really should not be here
-        $username = preg_replace('/[^\w@.-]/', '', $username);
-		$my_about = new about($username, NULL);
-        $my_about->get_user_details();
-		
-		if ($my_about->auth_user['perms'] != 'admin' && $my_about->auth_user['perms'] != 'root' && $my_about->auth_user['perms'] != 'nobody') {
+		if (!$perm->have_perm('admin') && is_object($user)) {
 			if (Navigation::hasItem('/search')){
 				
 					Navigation::removeItem('/search');
@@ -36,7 +30,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 			
 			if (Navigation::hasItem('/tools')){
-				if ($my_about->auth_user['perms'] != 'dozent') {
+				if (!$perm->have_perm('dozent')) {
 					if (Navigation::hasItem('/tools/elearning')){
 						Navigation::removeItem('/tools/elearning');
 					}
@@ -84,7 +78,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
 					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
 				}
-				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
+				if($count == 0 && !$perm->have_perm('tutor') && $user->id != 'nobody'){
 					Navigation::removeItem('/browse');	
 				}
 				
@@ -146,7 +140,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 		}
 		
-		
+		/**
 		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
 		if ($my_about->auth_user['perms'] == 'nobody'){
 			if (Navigation::hasItem('/course/main/courses')){
@@ -157,6 +151,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				Navigation::removeItem('/course/main/schedule');
 			}
 		}
+                 * **/
+                 
 
 		
 

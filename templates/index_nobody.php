@@ -28,12 +28,6 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -790px; top: -210px;'> 
- 		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
- 		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
- 		</a> 
- 	</div> 
-
 
     </nav>
     <footer>
@@ -87,26 +81,26 @@
             </tr>
         </table>
 
-        <a href="http://www.vhs-lingen.de">
-            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein.gif" border="0" width="191" height="100"  <?= tooltip(_("Zur Homepage der VHS Lingen")) ?> >
+        <a href="http://www.studip.de">
+            <img src="<?= $GLOBALS['ASSETS_URL'] ?>images/logos/logoklein@2x.png" border="0" width="215" height="83"  <?= tooltip(_("Zur Portalseite")) ?> >
         </a>
     </footer>
+
 
 
 <? UrlHelper::bindLinkParam('index_data', $index_data); 
  		 
  		    //Auf und Zuklappen News 
- 		    require_once 'lib/showNews.inc.php'; 
- 		    process_news_commands($index_data); 
+ 		    //require_once 'lib/showNews.inc.php'; 
+ 		    //process_news_commands($index_data); 
  		 
- 		    show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
+ 		    //show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
 ?> 
 
 </div>
 
-
 <?
-define('MAGPIE_CACHE_DIR', 'cache');
+define('MAGPIE_CACHE_DIR', $GLOBALS['TMP_PATH'].'/cache');
 define('MAGPIE_CACHE_AGE', '600');
 require_once('lib/rss_fetch.inc');
 $url = 'http://el4.elan-ev.de/rss.php?id=70cefd1e80398bb20ff599636546cdff';
@@ -121,7 +115,7 @@ $items_reverse = array_reverse($items, true);
 
 <table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
 <tr>
-<td class="table_header_bold"><b>News und Infos</b></td><tr>
+<td class="table_header_bold"> News und Infos </td><tr>
 
 <?
 foreach ($items_reverse as $item) {
