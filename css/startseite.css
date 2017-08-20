@@ -5,6 +5,9 @@ div.index_container div.index_main nav {
     padding: 10px;
     width: 324px;
 }
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    -webkit-filter: brightness(1000%);
+}
 
 #login_badge {
     position: relative !important;
@@ -83,7 +86,9 @@ body {
 #tabs li:hover {
     background: #9ac2e1 none repeat scroll 0 0;
 }
-
+#tabs li.current {
+    background-image: linear-gradient(to bottom, #eeeeee, #ffffff);
+}
 #barBottomright:before{
 	display: none !important;
 }
