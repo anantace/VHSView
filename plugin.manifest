@@ -2,5 +2,5 @@ pluginclassname=VHSViewPlugin
 pluginname=VHSViewPlugin
 origin=asudau@elan-ev.de
 version=2.0-lingen
-studipMinVersion=3.1
+studipMinVersion=3.4
 studipMaxVersion=3.5
