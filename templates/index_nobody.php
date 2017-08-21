@@ -28,12 +28,6 @@
             <? endif ?>
         <? endforeach ?>
 
-	<div id="login_badge" style='position: relative; right: -180px; top: -10px;'> 
- 		<a href="<?=$GLOBALS['BASE_URL']?>plugins.php/studipmobile"> 
- 		<img title="Ansicht für Mobilgeräte" src="<?=$GLOBALS['ASSETS_URL']?>images/studip_mobile.png" alt="Studip_mobile"> 
- 		</a> 
- 	</div> 
-
 
     </nav>
     <footer>
@@ -93,14 +87,6 @@
     </footer>
 
 
-<? UrlHelper::bindLinkParam('index_data', $index_data); 
- 		 
- 		    //Auf und Zuklappen News 
- 		    require_once 'lib/showNews.inc.php'; 
- 		    process_news_commands($index_data); 
- 		 
- 		    show_news('studip', FALSE, 0, true, "100%", null, $index_data); 
-?> 
 
 </div>
 

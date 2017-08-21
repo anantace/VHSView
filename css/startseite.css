@@ -1,4 +1,16 @@
 
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    -webkit-filter: brightness(2000%) !important;
+}
+
+#notification_marker {
+    background-color: #cd1013 !important;
+}
+
+#tabs li.current, #tabs li.current:hover, .smiley-tabs li.current, .smiley-tabs li.current:hover {
+    background-color: #fff !important;
+}
+
 div.index_container div.index_main nav {
     background-color: rgba(255, 255, 255, 0.8);
     display: inline-block;
