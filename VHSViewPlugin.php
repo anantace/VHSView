@@ -21,6 +21,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/nivo-slider.css');
 		PageLayout::addScript($this->getPluginUrl() . '/javascript/slideshow.js');
+                //PageLayout::addScript($this->getPluginUrl() . '/javascript/slideshow_new.js');
 		PageLayout::addScript($this->getPluginUrl() . '/javascript/jquery.nivo.slider.js');
 
 		//falls Mooc.IP aktiviert ist, Icon aus der Kopfzeile ausblenden

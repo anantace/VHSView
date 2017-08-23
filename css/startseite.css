@@ -1,43 +1,77 @@
+#vhs_title {
+color: #ccc !important;
+padding: 120px 0px 0px 120px;
+font-size: 20px;
+}
+
+
 #barTopFont { 
-color: #2a4c80 !important; 
+color: #00285a !important; 
 font-weight: 400 !important;
 }
 
+#barTopFont{
+background-image: none, url("../images/logos/logo_kvhs.gif") !important;
+background-size: 123px 70px !important; 
+display: block !important;
+width: 123px !important;
+height: 70px !important;
+}
+
+#barTopMenu {
+    top: 80px !important;
+}
+
 #barTopMenu a { 
-color: #2a4c80 !important; 
+color: #a9b6cb !important; 
 }
 
 #barTopMenu a:hover, 
 #barTopMenu li.active a { 
-color: #fff !important; 
+color: #00285a !important; 
 } 
 
+#header {
+    height: 140px !important;
+}
 
 body { 
 background-repeat: repeat !important; 
-background: url('../images/background.jpg') !important;
+background: #fff !important;
 margin: 0px !important;
 }
 
-div.index_container div.index_main footer {
-padding: 480px 5px 5px !important;
+div.index_container div.index_main footer {  
+padding: 10px 5px 5px !important;
+}
+
+div.index_container div.index_main nav{
+    margin: 20px 100px 120px 100px !important;
+}
+
+div.index_container div.index_main {
+    background: url('../images/startseite.png') no-repeat left top;
+    background-color: #FFFFFF;
+    background-size: 750px 500px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 }
 
 #flex-header { 
-background-image: url("../images/background_header.jpg") !important;
+background-image: none !important;
+background-color: #fff !important;
 }
 
 .table_header_bold {
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 } 
 
 table.toolbar {
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 td.toolbar,
 td.printhead {
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 td.rahmen_table_row_odd {
@@ -50,16 +84,16 @@ background-color: #d4dbe6 !important;
 } 
 
 table td.printhead2 { 
-border-top: 1px solid #2a4c80 !important; 
+border-top: 1px solid #00285a !important; 
 } 
 
 table td.printhead3 {
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 .settings thead th, 
 .settings tbody th {
-background-color: #2a4c80 !imoprtant;
+background-color: #00285a !important;
 }
 
 .settings .divider > th, 
@@ -68,20 +102,15 @@ background-color: #4c7bc4 !important;
 }
 
 .settings .bordered.left {
-border-left: 1px solid #2a4c80 !important;
+border-left: 1px solid #00285a !important;
 }
 
 .settings .bordered.right {
-border-left: 1px solid #2a4c80 !important;
+border-left: 1px solid #00285a !important;
 }
 
 table.tree .header > td {
-border-top: 1px solid #2a4c80 !important;
-}
-
-table.default thead th {
-background-color: #d4dbe6 !important; 
-border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important; 
+border-top: 1px solid #00285a !important;
 }
 
 table.default tbody th {
@@ -94,7 +123,7 @@ background-color: #d4dbe6 !important;
 }
 
 table.default2 caption {
-background-color: #2a4c80 !important; 
+background-color: #00285a !important; 
 }
 
 table.default2 tbody tr:hover td {
@@ -103,72 +132,95 @@ background-color: rgba(42, 76, 128, 0.25) !important;
 
 .studip_form > fieldset > legend {
 background-color: #d4dbe6 !important;
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 .css-tree.selectable input[type=radio]:checked + label { 
 background: #aab7cc !important; 
 }
 
-#layout_footer {
-background-color: #2a4c80 !important;
+#layout_footer{
+background-color: #fff !important;
+}
+#layout_footer a{
+color: #00285a !important;
 }
 
+#footer{
+color: #00285a !important;
+}
+
+
 #barBottom {
-background-color: #2a4c80 !important; 
+background-color: #00285a !important; 
 }
 
 #barBottomContainer {
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 #barBottomLeft, #barBottommiddle, 
 #barBottomright { 
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 #barBottomLeft:before { 
 border: 12px solid rgba(42, 76, 128, 0) !important; 
-border-left-color: #2a4c80 !important;
+border-left-color: #00285a !important;
 }
 
 #barBottommiddle:before {
-background-color: #2a4c80 !important; 
-background-image: -moz-linear-gradient(left, #36598f, #2a4c80) !important; 
-background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#36598f), to(#2a4c80)) !important; 
-background-image: -webkit-linear-gradient(left, #36598f, #2a4c80) !important; 
-background-image: -o-linear-gradient(left, #36598f, #2a4c80) !important; 
-background-image: linear-gradient(to right, #36598f, #2a4c80) !important; 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff36598f', endColorstr='#ff2a4c80', GradientType=1) !important;
+background-color: #00285a !important; 
+background-image: -moz-linear-gradient(left, #00285a, #00285a) !important; 
+background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#00285a), to(#00285a)) !important; 
+background-image: -webkit-linear-gradient(left, #00285af, #00285a) !important; 
+background-image: -o-linear-gradient(left, #00285a, #00285a) !important; 
+background-image: linear-gradient(to right, #00285a, #00285a) !important; 
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00285a', endColorstr='#ff00285a', GradientType=1) !important;
 }
 
 
 #barBottomright:before {
-background-color: #2a4c80 !important; 
-background-image: -moz-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
-background-image: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(42, 76, 128, 0)), to(#2a4c80)) !important; 
-background-image: -webkit-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
-background-image: -o-linear-gradient(left, rgba(42, 76, 128, 0), #2a4c80) !important; 
-background-image: linear-gradient(to right, rgba(42, 76, 128, 0), #2a4c80) !important;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002a4c80', endColorstr='#ff2a4c80', GradientType=1) !important; 
+background-color: #00285a !important; 
+background-image: -moz-linear-gradient(left, rgba(42, 76, 128, 0), #00285a) !important; 
+background-image: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(42, 76, 128, 0)), to(#00285a)) !important; 
+background-image: -webkit-linear-gradient(left, rgba(42, 76, 128, 0), #00285a) !important; 
+background-image: -o-linear-gradient(left, rgba(42, 76, 128, 0), #00285a) !important; 
+background-image: linear-gradient(to right, rgba(42, 76, 128, 0), #00285a) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0000285a', endColorstr='#ff00285a', GradientType=1) !important; 
 background-color: rgba(42, 76, 128, 0) !important;
 }
 
 #notification_marker {
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 .studip-logo {
-background-image: none, url("../images/logos/studip-logo.svg") !important;
+background-image: none, url("../images/logos/logo.jpg") !important;
+background-size: 125px 125px !important; 
+display: block !important;
+width: 125px !important;
+height: 125px !important;
 }
 
-#barTopStudip { 
-bottom: 16px !important; 
-right: 50px !important; 
-} 
+#barTopStudip {
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 1000px !important;
+    top: 10px !important;
+}
 
 td.infoboxrahmen {
 border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important;
+}
+
+
+div#layout-sidebar div.sidebar-image img {
+    filter: hue-rotate(0deg) saturate(120%) brightness(60%);
+}
+
+.course-avatar-medium {
+    filter: none !important;
 }
 
 .sidebar-widget-content {
@@ -180,7 +232,7 @@ background: #d4dbe6 !important;
 }
 
 .helpbar .helpbar-widgets > li {
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 section.contentbox header {
@@ -205,7 +257,7 @@ background-color: #ccd4e1 !important;
 }
 
 .dropping {
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 
@@ -214,7 +266,7 @@ background-color: #aab7cc !important;
 }
 
 #statusbar_container > .statusbar > .progress { 
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 .message_body {
@@ -222,19 +274,33 @@ background-color: #d4dbe6 !important;
 }
 
 #tabs li {
-background-color: #2a4c80 !important;
-}
-
-#tabs li.current, #tabs li.current:hover, #tabs li:hover {
 background-color: #fff !important;
 }
 
-#tabs li:hover a {
-color: #000 !important;
+#tabs li.current, #tabs li.current:hover, #tabs li:hover {
+    background-color: #00285a !important;
 }
 
+#tabs li:hover a {
+color: #fff !important;
+}
+
+#tabs li.current a, #tabs li.current span.quiet, .smiley-tabs li.current a, .smiley-tabs li.current span.quiet {
+    color: #fff;
+}
+#tabs a, #tabs span.quiet, .smiley-tabs a {
+    color: #00285a;
+}
+ #tabs li.current a img, #tabs li a img {
+     filter: invert(100%);
+ }
+  #tabs li:hover a img {
+     filter: none;
+ }
+
+
 .cronjobs-edit > table > thead > tr > th { 
-background-color: #2a4c80 !important; 
+background-color: #00285a !important; 
 }
 
 .themen_list > * {
@@ -250,7 +316,7 @@ background-color: #d4dbe6 !important;
 }
 
 .addclip-widgets li { 
-border-top: 1px solid #2a4c80 !important;
+border-top: 1px solid #00285a !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane .ui-button { 
@@ -258,46 +324,27 @@ background-color: #ccd4e1 !important;
 }
 
 blockquote {
-border-left: 3px solid #2a4c80 !important;
+border-left: 3px solid #00285a !important;
 }
 
 blockquote > .author {
-background-color: #2a4c80 !important;
+background-color: #00285a !important;
 }
 
 div.overdiv div.title {
-background: #2a4c80 !important; 
+background: #00285a !important; 
 }
 
 #barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
-    filter: brightness(2000%) !important;
+    filter: hue-rotate(0deg) saturate(100%) brightness(100%) !important;
+}
+#barTopMenu li a img, #barTopMenu li a canvas {
+    filter: hue-rotate(0deg) saturate(40%) brightness(200%) grayscale(20%) !important;
 }
 
 
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 

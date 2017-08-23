@@ -9,8 +9,31 @@
         </div>
          -->
         <div id="barTopFont">
-            <?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?>
         </div>
+        
+        <a href="http://www.kvhs-ammerland.de/index.php?id=6" title="Website kvhs Ammerland" target="_blank">
+          <div id="wrapper" style="z-index:1; position:absolute; left:400px;overflow:hidden;width:751px;height:140px;"> 
+ 		        <div class="slider-wrapper"> 
+ 		                    <div id="slider" class="nivoSlider"> 
+ 		                <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/bilda.jpg") ?>" data-transition="fade">  
+ 		                <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/bildb.jpg") ?>" data-transition="fade">  
+ 		                <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/slides/bildc.jpg") ?>" data-transition="fade"> 
+                                    </div> 
+ 		        </div>
+                        
+              </div>
+          <div id="wrapper2" style="z-index:2; position:absolute; top:10px; left:1000px;overflow:hidden;width:120px;height:120px;"> 
+               <div class="slider-wrapper"> 
+ 		                    <div id="slider2" class="nivoSlider"> 
+                                        <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/logos/Logo-kvhs-1.gif") ?>" data-transition="fade"> 
+                                        <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/logos/Logo-ggmbh-1.gif") ?>" data-transition="fade"> 
+ 		        
+                                    </div>   
+                            </div>
+                     </div>
+           </a>
+			
+            
         <? SkipLinks::addIndex(_('Hauptnavigation'), 'barTopMenu', 1); ?>
         <ul id="barTopMenu" role="navigation">
             <? $accesskey = 0 ?>
@@ -38,11 +61,10 @@
                 <? endif ?>
             <? endforeach ?>
         </ul>
+        <!-- Stud.IP Logo -->
+    
     </div>
-    <!-- Stud.IP Logo -->
-    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank">
-        Stud.IP Homepage
-    </a>
+    
 </div>
 
 <!-- Leiste unten -->
