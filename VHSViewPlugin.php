@@ -159,6 +159,20 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 		}
 
+                //profilenavigation for courseware-badges
+                $values = array('user_id' => $user->id);
+                $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+                $statement = \DBManager::get()->prepare($query);
+                $statement->execute($values);
+                $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+                
+                
+                if (Navigation::hasItem("/profile") && 
+                    $this->badges) {
+                        $nav = new AutoNavigation(_("Badges"), PluginEngine::getURL($this, 
+                        array('user_id' => get_userid(Request::get("username"))), "badges"));
+                        Navigation::addItem("/profile/badges", $nav);
+                }
 		
 
 		
