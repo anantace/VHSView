@@ -27,8 +27,19 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			
 			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		}
-		
-		
+                
+                //Kontakte verschieben zum Messaging, erfordert auch Änderung in controllers/contact.php
+		if (Navigation::hasItem('/messaging')){
+                    $navigation = new Navigation(_('Kontakte'), 'dispatch.php/contact');
+                    Navigation::getItem('/messaging')->addSubNavigation('contacts', $navigation);
+
+                }
+                if (Navigation::hasItem('/community/contacts')){
+				Navigation::removeItem('/community/contacts');
+                }
+                
+                
+		//Wer kein Admin ist braucht das alles nicht
 		if (!$perm->have_perm('admin') && is_object($user)) {
 			if (Navigation::hasItem('/search')){
 				
@@ -36,17 +47,27 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				
 				
 			}
-			
-			if (Navigation::hasItem('/tools')){
-				if (!$perm->have_perm('dozent')) {
+			//Wer kein Dozent ist braucht auch das hier nicht
+			if (!$perm->have_perm('dozent')) {
+                            if (Navigation::hasItem('/tools')){
+				
 					if (Navigation::hasItem('/tools/elearning')){
 						Navigation::removeItem('/tools/elearning');
 					}
 					if (Navigation::hasItem('/tools/evaluation')){
 						Navigation::removeItem('/tools/evaluation');
 					}
+                                        
 				}
-			}
+			
+                        
+                            if (Navigation::hasItem('/community')){
+				Navigation::removeItem('/community');
+                            }
+                            if (Navigation::hasItem('/calendar')) {
+                                Navigation::removeItem('/calendar');
+                            }
+                        }
 	/**		
 			if (Navigation::hasItem('/course/main/courses')){
 			//	Navigation::removeItem('/course/main/courses');
