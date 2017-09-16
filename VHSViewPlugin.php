@@ -17,7 +17,6 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
             realpath($this->getPluginPath() . '/templates')
         );
 		
-		
 		global $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
 
@@ -94,6 +93,16 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			if (Navigation::hasItem('/start/search')){
 				Navigation::removeItem('/start/search');
 			}
+                        
+                        if (Navigation::hasItem('/start')){
+                        if (Navigation::hasItem('/start/community')){
+				Navigation::removeItem('/start/community');
+                            }
+                            if (Navigation::hasItem('/start/planner')) {
+                                Navigation::removeItem('/start/planner');
+                            }
+                        }
+                        
 			
 			if (Navigation::hasItem('/browse')){
 				
