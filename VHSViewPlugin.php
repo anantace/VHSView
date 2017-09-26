@@ -160,17 +160,31 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		}
 
                 //profilenavigation for courseware-badges
-                $values = array('user_id' => $user->id);
-                $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
-                $statement = \DBManager::get()->prepare($query);
-                $statement->execute($values);
-                $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+                $this->user         = \User::findCurrent(); // current logged in user
+                $this->current_user = \User::findByUsername(Request::username('username', $this->user->username)); // current selected user
+                
+                //falls Profil des eingeloggten Nutzers, schauen ob er schon Badges hat
+                if ($this->current_user['user_id'] == $this->user->id && !$this->current_user['locked']) {
+                    $values = array('user_id' => $this->user->id);
+                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+                    $statement = \DBManager::get()->prepare($query);
+                    $statement->execute($values);
+                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+                
+                //falls profil eines fremden nutzers schauen ob er schon Badges hat
+                } else {
+                    $values = array('user_id' => $this->current_user['user_id']);
+                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+                    $statement = \DBManager::get()->prepare($query);
+                    $statement->execute($values);
+                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+                }
                 
                 
                 if (Navigation::hasItem("/profile") && 
                     $this->badges) {
                         $nav = new AutoNavigation(_("Badges"), PluginEngine::getURL($this, 
-                        array('user_id' => get_userid(Request::get("username"))), "badges"));
+                        array('user_id' => $this->current_user['user_id']), "badges"));
                         Navigation::addItem("/profile/badges", $nav);
                 }
 		

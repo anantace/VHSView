@@ -1,11 +1,14 @@
+<?php 
 
+PluginEngine::getPlugin('Courseware');
 
-<?php foreach ($badges as $badge){
+foreach ($badges as $badge){
+            
             $block = new \Mooc\DB\Block($badge['badge_block_id']);
 
             $seminar_id= $block->seminar_id;
             
-            $field = current(\Mooc\DB\Field::findBySQL('block_id = ? AND name = ?', array($block->id, 'file_id')));
+            $field = current(Mooc\DB\Field::findBySQL('block_id = ? AND name = ?', array($block->id, 'file_id')));
             $file_id= $field->content;
             $field = current(\Mooc\DB\Field::findBySQL('block_id = ? AND name = ?', array($block->id, 'file_name')));
             $file_name= $field->content;

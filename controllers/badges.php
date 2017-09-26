@@ -30,21 +30,12 @@ class BadgesController extends StudipController {
     // selected block's page
     public function index_action()
     {
-        global $user; 
-       $values = array('user_id' => $user->id);
+        $values = array('user_id' => Request::get('user_id'));
         $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
 	$statement = \DBManager::get()->prepare($query);
 	$statement->execute($values);
         $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
-        
-        
-        foreach ($badges as $badge){
-            $block = new \Mooc\DB\Block($badge['badge_block_id']);
-            
-        }
-        
-        
+         
     }
 
 
