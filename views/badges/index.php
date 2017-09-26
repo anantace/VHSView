@@ -1,13 +1,21 @@
 <?php 
 
 PluginEngine::getPlugin('Courseware');
+$sem_id;
 
 foreach ($badges as $badge){
             
             $block = new \Mooc\DB\Block($badge['badge_block_id']);
 
             $seminar_id= $block->seminar_id;
+            $this->course = new Course($seminar_id);
+            $semTitle = ($sem_id != $seminar_id)? $this->course['Name'] : '' ;
             
+            ?>
+
+            <?= $semTitle ?' <h1>' . $semTitle . '</h1>': '' ?></h1>
+            
+            <?
             $field = current(Mooc\DB\Field::findBySQL('block_id = ? AND name = ?', array($block->id, 'file_id')));
             $file_id= $field->content;
             $field = current(\Mooc\DB\Field::findBySQL('block_id = ? AND name = ?', array($block->id, 'file_name')));
@@ -20,6 +28,7 @@ foreach ($badges as $badge){
                 <img style='max-width:100%' src='../../sendfile.php?type=0&file_id=<?=$file_id?>&file_name=<?=$file_name?>'>
                 </div>       
 <?
+            $sem_id = $seminar_id;
         }
 
 /* 

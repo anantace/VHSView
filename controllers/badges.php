@@ -31,7 +31,7 @@ class BadgesController extends StudipController {
     public function index_action()
     {
         $values = array('user_id' => Request::get('user_id'));
-        $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+        $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id ORDER BY sem_id ASC" ;
 	$statement = \DBManager::get()->prepare($query);
 	$statement->execute($values);
         $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
