@@ -38,7 +38,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 	//Navigation::getItem('/search')->setTitle($course_id);
 
 
-		if ($perm->have_perm() != 'admin' && $perm->have_perm()  != 'root' && $user->id != 'nobody') {
+		if (!$perm->have_perm('admin') && $user->id != 'nobody') {
 			if (Navigation::hasItem('/search')){
 				
 					Navigation::removeItem('/search');
@@ -47,7 +47,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 			
 			if (Navigation::hasItem('/tools')){
-				if ($perm->have_perm() != 'dozent') {
+				if (!$perm->have_perm('dozent')) {
 					if (Navigation::hasItem('/tools/elearning')){
 						Navigation::removeItem('/tools/elearning');
 					}
@@ -95,7 +95,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
 					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
 				}
-				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
+				if($count == 0 && !$perm->have_perm('dozent')){
 					Navigation::removeItem('/browse');	
 				}
 				
