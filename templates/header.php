@@ -52,8 +52,8 @@
         </ul>
     </div>
     <!-- Stud.IP Logo -->
-    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank">
-        Stud.IP Homepage
+    <a class="studip-logo" id="barTopStudip" href="http://www.vhs-os.de/" title="Homepage der VHS Osnabrück" target="_blank">
+        Homepage der VHS Osnabrück
     </a>
 </div>
 
