@@ -153,7 +153,37 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		}
                  * 
                  */
-
+            if (is_object($user) && $user->username == 'gastnutzer_papenburg' ) {	
+                //echo '<pre>';
+                //var_dump(Navigation::getItem('/course')->getSubNavigation());
+                //echo '</pre>';
+                PageLayout::addStylesheet($this->getPluginUrl() . '/css/gastuser.css');
+                
+                if (Navigation::hasItem('/start')){
+				Navigation::removeItem('/start');
+			}
+                if (Navigation::hasItem('/messaging')){
+				Navigation::removeItem('/messaging');
+			}
+                if (Navigation::hasItem('/community')){
+				Navigation::removeItem('/community');
+			}
+                if (Navigation::hasItem('/profile')){
+				Navigation::removeItem('/profile');
+			}
+                if (Navigation::hasItem('/tools/rss')){
+                        Navigation::removeItem('/tools/rss');
+                }
+                 if (Navigation::hasItem('/calendar')){
+                        Navigation::removeItem('/calendar');
+                }
+                if (Navigation::hasItem('/course')){
+                    Navigation::getItem('/course')->setURL("/plugins.php/courseware/courseware?cid=bc813ce4b0859736058c0cba59eb35fd");
+                    Navigation::getItem('/course')->setTitle("JOBSTARTER plus");
+                    Navigation::getItem('/course')->removeSubNavigation('main');
+                    Navigation::getItem('/course')->removeSubNavigation('scm');
+                }
+            }
 		
 
 		
