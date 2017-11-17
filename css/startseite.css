@@ -4,6 +4,21 @@ padding: 120px 0px 0px 120px;
 font-size: 20px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #062c5b;;
+}
+
+.ui-widget-content {
+    color: #062c5b;
+}
+
+a, a:link, a:visited {
+    color: #5d6a92 !important;
+    text-decoration: none;
+}
 
 #barTopFont { 
 color: #00285a !important; 
@@ -136,7 +151,7 @@ border-top: 1px solid #00285a !important;
 }
 
 .css-tree.selectable input[type=radio]:checked + label { 
-background: #aab7cc !important; 
+background: #CCD5DE !important; 
 }
 
 #layout_footer{
@@ -224,7 +239,7 @@ div#layout-sidebar div.sidebar-image img {
 }
 
 .sidebar-widget-content {
-border-top: 1px solid #aab7cc !important;
+border-top: 1px solid #CCD5DE !important;
 }
 
 .sidebar .sidebar-widget-placeholder {
@@ -240,15 +255,15 @@ background-color: #d4dbe6 !important;
 }
 
 section.contentbox footer {
-border-color: #aab7cc !important; 
+border-color: #CCD5DE !important; 
 }
 
 section.contentbox article { 
-border-color: #aab7cc !important; 
+border-color: #CCD5DE !important; 
 }
 
 section.contentbox article footer {
-border-color: #aab7cc !important;
+border-color: #CCD5DE !important;
 }
 
 a.button, 
@@ -262,7 +277,7 @@ background-color: #00285a !important;
 
 
 #statusbar_container > .statusbar {
-background-color: #aab7cc !important;
+background-color: #CCD5DE !important;
 }
 
 #statusbar_container > .statusbar > .progress { 
@@ -312,7 +327,8 @@ background-color: #d4dbe6 !important;
 }
 
 .studip-widget .widget-header {
-background-color: #d4dbe6 !important;
+background-color: #00285a !important;
+color: white !important;
 }
 
 .addclip-widgets li { 
