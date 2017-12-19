@@ -3,7 +3,6 @@
 	background-size: 221px 115px;
 	height: 95px;
     width: 221px;
-    margin-left: 150px;
 }
 
 #vhs_title {
@@ -28,20 +27,12 @@ a, a:link, a:visited {
     text-decoration: none;
 }
 #barBottomright a, #layout_footer a {
-    color: #062c5b;
+    color: #062c5b !important;
 }
 
 #barTopFont { 
 color: #00285a !important; 
 font-weight: 400 !important;
-}
-
-#barTopFont{
-background-image: none, url("../images/logos/logo_kvhs.gif") !important;
-background-size: 123px 70px !important; 
-display: block !important;
-width: 123px !important;
-height: 70px !important;
 }
 
 #barTopMenu {
