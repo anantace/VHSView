@@ -4,7 +4,7 @@
 <!-- Start Header -->
 
 <div id="barTopStudip">  
-       <a href="http://www.vhs-norden.net/t3//" title="Homepage der KVHS Norden">  
+       <a href="http://kvhs-norden.com/" title="Homepage der KVHS Norden" target="_blank">  
              <img src="<?=$GLOBALS['ASSETS_URL']?>images/logos/banner_kvhs-norden.jpg" alt="Homepage der KVHS Norden">  
        </a>  
 </div> 
