@@ -3,6 +3,7 @@
 	background-size: 221px 115px;
 	height: 95px;
     width: 221px;
+    margin-left: 150px;
 }
 
 #vhs_title {
@@ -25,6 +26,9 @@ h1, h2, h3, h4, h5, h6 {
 a, a:link, a:visited {
     color: #062c5b;
     text-decoration: none;
+}
+#barBottomright a, #layout_footer a {
+    color: #062c5b;
 }
 
 #barTopFont { 
@@ -88,6 +92,8 @@ background-color: #fff !important;
 }
 #barBottomContainer {
     height: 40px;
+    border: none;
+    color: #00285a;
 }
 #barBottomContainer a:visited{
     color: #fff;
@@ -193,12 +199,13 @@ background-color: #00285a !important;
 }
 
 #barBottomContainer {
-background-color: #00285a !important;
+background-color: #fff !important;
 }
 
 #barBottomLeft, #barBottommiddle, 
 #barBottomright { 
-background-color: #00285a !important;
+    background-color: #fff !important;
+    color: #00285a;
 }
 
 #barBottomLeft:before { 
@@ -218,13 +225,6 @@ background-color: #00285a !important;
 background-color: #00285a !important;
 }
 
-.studip-logo {
-background-image: none, url("../images/logos/logo.jpg") !important;
-background-size: 125px 125px !important; 
-display: block !important;
-width: 125px !important;
-height: 125px !important;
-}
 
 #barTopStudip {
     position: absolute !important;
