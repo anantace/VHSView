@@ -64,9 +64,18 @@ div.index_container div.index_main {
 }
 
 body {
-	background-color: #ccc !important;
-    background-image: linear-gradient(to bottom, #ccc, #ccc) !important;
-	}
+    background-color: #ddd !important;
+    background-image: linear-gradient(to bottom, #ddd, #ddd) !important;
+}
+#layout_container{
+    background-color: #fff !important;
+    background-image: linear-gradient(to bottom, #fff, #fff) !important;
+}
+#layout_content{
+    background-color: #fff !important;
+    background-image: linear-gradient(to bottom, #fff, #fff) !important;
+}
+
 	
 #flex-header {
 	 background-color: #ccc !important;
@@ -96,17 +105,17 @@ body {
 }
 
 #barBottomLeft, #barBottommiddle, #barBottomright {
-    background-color: #cd1013 !important; 
+    background-color: #aaa !important; //#cd1013
     color: #fff !important;
 }
 
 .table_header_bold {
-    background-color: #cd1013 !important;
+    background-color: #aaa !important; //#cd1013
     border-color: #f0ede6 !important;
 }
 
 #tabs li {
-    background-color: #cd1013 !important;
+    background-color: #aaa !important; //#cd1013
 }
 
 #tabs a, #tabs span.quiet {
@@ -118,7 +127,7 @@ body {
 }
 
 #layout_footer {
-    background-color: #cd1013 !important;
+    background-color: #aaa !important;
     border-top: 1px solid #f0ede6 !important;
 }
 
