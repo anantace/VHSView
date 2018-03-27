@@ -140,52 +140,49 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 		}
 		
-		/**
-		//Aus irgendeinem Grund wird das hier immer aufgerufen und oben geht er auch bei 'nobody' in die if-Schleife
-		if ($my_about->auth_user['perms'] == 'nobody'){
-			if (Navigation::hasItem('/course/main/courses')){
-				Navigation::removeItem('/course/main/courses');
-			}
-			
-			if (Navigation::hasItem('/course/main/schedule')){
-				Navigation::removeItem('/course/main/schedule');
-			}
-		}
-                 * 
-                 */
-            if (is_object($user) && $user->username == 'gastnutzer_papenburg' ) {	
-                //echo '<pre>';
-                //var_dump(Navigation::getItem('/course')->getSubNavigation());
-                //echo '</pre>';
+        //Jobstarter-Stuff
+        $referer = $_SERVER['REQUEST_URI'];
+		//Falls wir als Gastnutzer eingeloggt sind
+        //gastnutzer_papenburg
+        if(is_object($user) && $user->username == 'gastnutzer_papenburg'){
+
+            //falls wir ind er jobstarter courseware sind
+            if($referer!=str_replace("plugins.php/courseware/courseware","",$referer)){
                 PageLayout::addStylesheet($this->getPluginUrl() . '/css/gastuser.css');
+                PageLayout::addScript($this->getPluginUrl() . '/css/jobstarter_header.js');
+            }
+            
+            if($referer!=str_replace("dispatch.php/course/overview","",$referer)){
+                header("Location:" . URLHelper::getURL("logout.php"));
+                die();
+            }
                 
-                if (Navigation::hasItem('/start')){
+            if (Navigation::hasItem('/start')){
 				Navigation::removeItem('/start');
 			}
-                if (Navigation::hasItem('/messaging')){
+            if (Navigation::hasItem('/messaging')){
 				Navigation::removeItem('/messaging');
 			}
-                if (Navigation::hasItem('/community')){
+            if (Navigation::hasItem('/community')){
 				Navigation::removeItem('/community');
 			}
-                if (Navigation::hasItem('/profile')){
+            if (Navigation::hasItem('/profile')){
 				Navigation::removeItem('/profile');
 			}
-                if (Navigation::hasItem('/tools/rss')){
-                        Navigation::removeItem('/tools/rss');
-                }
-                 if (Navigation::hasItem('/calendar')){
-                        Navigation::removeItem('/calendar');
-                }
-                if (Navigation::hasItem('/course')){
-                    Navigation::getItem('/course')->setURL("/plugins.php/courseware/courseware?cid=bc813ce4b0859736058c0cba59eb35fd");
-                    Navigation::getItem('/course')->setTitle("JOBSTARTER plus");
-                    Navigation::getItem('/course')->removeSubNavigation('main');
-                    Navigation::getItem('/course')->removeSubNavigation('scm');
-                }
+            if (Navigation::hasItem('/tools/rss')){
+                Navigation::removeItem('/tools/rss');
             }
-		
-
+            if (Navigation::hasItem('/calendar')){
+                Navigation::removeItem('/calendar');
+            }
+            if (Navigation::hasItem('/course')){
+                Navigation::getItem('/course')->setURL("/plugins.php/courseware/courseware?cid=bc813ce4b0859736058c0cba59eb35fd");
+                Navigation::getItem('/course')->setTitle("JOBSTARTER plus");
+                Navigation::getItem('/course')->removeSubNavigation('main');
+                Navigation::getItem('/course')->removeSubNavigation('scm');
+            }
+            
+        }
 		
 	}
 }

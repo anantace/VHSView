@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 #header{
-    display: none !important;
+    /*display: none !important;*/
 }
 
 section#courseware ol.subchapters li.selected > .title .complete{
@@ -18,4 +18,15 @@ section#courseware ol.subchapters li.selected > .title .complete{
 
 section#courseware ol.subchapters li div.title .complete{
     background-image: none !important;
+}
+#flex-header {
+    background-color: #fff;
+}
+
+.helpbar-container{
+    display: none;
+}
+
+#tabs{
+    display: none;
 }
