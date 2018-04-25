@@ -21,6 +21,7 @@ section#courseware ol.subchapters li div.title .complete{
 }
 #flex-header {
     background-color: #fff;
+    background-image: none !important;
 }
 
 .helpbar-container{
