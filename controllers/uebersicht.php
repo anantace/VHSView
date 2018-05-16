@@ -3,7 +3,7 @@
 require_once 'app/controllers/news.php';
 
 
-class StartController extends StudipController {
+class UebersichtController extends StudipController {
 
     public $group_licenses = false;		
 
@@ -17,12 +17,10 @@ class StartController extends StudipController {
     }
 
     public function before_filter(&$action, &$args) {
-
-     $this->set_layout($GLOBALS['template_factory']->open('layouts/base_without_infobox'));
-	 PageLayout::setTitle('Meine VHS');
-	 Navigation::activateItem('/start');
-
-	 
+        parent::before_filter($action, $args);
+        
+        //autonavigation
+         Navigation::activateItem("course/uebersicht");
     }
 
     public function index_action() {
@@ -32,27 +30,6 @@ class StartController extends StudipController {
         $this->courses = $user->course_memberships;
         //foreach ($courses as $cm){
             //if ($cm->seminar_id == '7637bfed08c7a2a3649eed149375cbc0');
-    
-        $messages_data = DBManager::get()->prepare("
-                SELECT message.*
-                FROM message_user
-                    INNER JOIN message ON (message_user.message_id = message.message_id)
-                WHERE message_user.user_id = :me
-                    AND message_user.deleted = 0
-                ORDER BY message_user.mkdate DESC
-                LIMIT 2
-            ");
-        $messages_data->execute(array(
-            'me' => $GLOBALS['user']->id
-        ));
-        $messages_data->setFetchMode(PDO::FETCH_ASSOC);
-        $messages = array();
-        foreach ($messages_data as $data) {
-            $messages[] = Message::buildExisting($data);
-        }
-        $this->messages = $messages;
-        
-        
     }
 
  public function overview_action() {

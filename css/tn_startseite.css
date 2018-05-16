@@ -21,16 +21,15 @@ colors
   cursor: pointer;
   height: 252px; width: 266px;
   margin: 5px;
-  background: #ddd;
-  border-radius: 10px;
+  background: #fff;
+  color: #fff;
 
 }
 
 .tn_kacheln article.kurs_kachel { 
   cursor: pointer;
   margin: 5px;
-  background: #ddd;
-  border-radius: 10px;
+  background: #fff;
   height: 100px; width: 99%;
 }
 
@@ -48,11 +47,7 @@ colors
   position: absolute;
 }
 
-#messages_kachel span h1{
-     color: #fff !important;
-}
-
-#news_kachel span h1{
+.tn_kacheln article span h1{
      color: #fff !important;
 }
 
@@ -62,9 +57,6 @@ colors
   position: absolute;
 }
 
-.kurs_kachel span h1{
-     color: #fff !important;
-}
 
 @media screen and (min-width:650px) {
   .content {

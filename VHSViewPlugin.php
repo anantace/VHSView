@@ -64,6 +64,10 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
     
     private function setupNavigationForKursteilnehmer(){
     
+         if (Navigation::hasItem('/course')){
+                Navigation::getItem('/course')->setImage(NULL);
+            }
+        
         if (Navigation::hasItem('/start')){
             Navigation::getItem('/start')->setURL( PluginEngine::getLink($this, array(), 'start/'));
         
