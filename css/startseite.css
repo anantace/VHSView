@@ -43,7 +43,7 @@ body {
 #barTopFont {
     color: #000 !important;
     font-size: 18pt !important;
-    font-weight: 400 !important;
+    font-weight: 400 !important; 
 }
 
 #flex-header {
@@ -60,16 +60,16 @@ body {
 }
 #barTopStudip{
     background-color: transparent !important;
-    background-image: none, url("../images/logos/logoklein.png") !important;
+    background-image: none, url("../images/logos/vhs_papenburg_logo_horizontal.png") !important;
     background-repeat: no-repeat !important;
-    background-size: 168px 60px !important;
+    background-size: 360px 60px !important;
     border: 0 none !important;
     color: transparent !important;
     display: block !important;
     font: 0px/0 a !important;
     height: 60px !important;
     text-shadow: none !important;
-    width: 168px !important;
+    width: 360px !important;
 }
 
 /* Infobox */
