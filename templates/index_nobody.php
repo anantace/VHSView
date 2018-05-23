@@ -87,3 +87,36 @@
         </a>
     </footer>
 </div>
+
+<?php
+define('MAGPIE_CACHE_DIR', 'cache');
+define('MAGPIE_CACHE_AGE', '600');
+require_once('lib/rss_fetch.inc');
+$url = 'http://el4.elan-ev.de/rss.php?id=70cefd1e80398bb20ff599636546cdff';
+
+if ( $url ) {
+$num_items = 20;
+$rss = fetch_rss( $url );
+$items = array_slice($rss->items, 0,$num_items);
+$items_reverse = array_reverse($items, true);
+} 
+?>
+
+<table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
+<tr>
+<td class="table_header_bold"><b>News und Infos</b></td><tr>
+
+<?php
+foreach ($items_reverse as $item) {
+	$href = $item['link'];
+	$title = $item['title'];
+	$description = $item['description'];
+	$arr = array("<div>","</div>","<p>","</p>");
+	$description_clean = str_replace($arr," ",$description);
+	echo "<tr> <td class='blank' style='padding:20px'><h1>$title</h1><br/> $description_clean </td></tr>";
+	echo "</table>";
+	echo "<table class='index_box' style='width: 100%;'>";
+	
+}
+echo "</table>";
+?> 
