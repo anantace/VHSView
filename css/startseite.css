@@ -31,8 +31,11 @@ a, a:link, a:visited {
 }
 
 #barTopFont { 
-color: #00285a !important; 
-font-weight: 400 !important;
+    background-image: none, url("../images/logo.png") !important;
+    background-size: 300px 70px !important;
+    display: block !important;
+    width: 300px !important;
+    height: 70px !important;
 }
 
 #barTopMenu {
