@@ -89,8 +89,8 @@
 </div>
 
 <?php
-define('MAGPIE_CACHE_DIR', 'cache');
-define('MAGPIE_CACHE_AGE', '600');
+//define('MAGPIE_CACHE_DIR', 'cache');
+//define('MAGPIE_CACHE_AGE', '600');
 require_once('lib/rss_fetch.inc');
 $url = 'http://el4.elan-ev.de/rss.php?id=70cefd1e80398bb20ff599636546cdff';
 

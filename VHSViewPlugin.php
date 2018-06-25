@@ -17,7 +17,10 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		
 		global $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
-
+        
+        //TODO get datafield value of hide Tab Navigation for this Seminar
+        
+        PageLayout::addStylesheet($this->getPluginUrl() . '/css/no_tab_nav.css');
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		PageLayout::addStylesheet($this->getPluginUrl() . '/css/nivo-slider.css');
 		PageLayout::addScript($this->getPluginUrl() . '/javascript/slideshow.js');
@@ -44,6 +47,12 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					if (Navigation::hasItem('/tools/evaluation')){
 						Navigation::removeItem('/tools/evaluation');
 					}
+                    if (Navigation::hasItem('/calendar/schedule')){
+                        Navigation::removeItem('/calendar/schedule');
+                    }
+                    if (Navigation::hasItem('/community')){
+                        Navigation::removeItem('/community');
+                    }
 				}
 			}
 	/**		
@@ -55,6 +64,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			//	Navigation::removeItem('/course/main/schedule');
 			}
 		**/	
+            
+            
 			if (Navigation::hasItem('/tools')){
 				Navigation::getItem('/tools')->setImage(NULL);
 			}
