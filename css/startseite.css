@@ -105,17 +105,17 @@ body {
 }
 
 #barBottomLeft, #barBottommiddle, #barBottomright {
-    background-color: #aaa !important; //#cd1013
+    background-color: #cd1013 !important; //#cd1013
     color: #fff !important;
 }
 
 .table_header_bold {
-    background-color: #aaa !important; //#cd1013
+    background-color: #cd1013 !important; //#cd1013
     border-color: #f0ede6 !important;
 }
 
 #tabs li {
-    background-color: #aaa !important; //#cd1013
+    background-color: #cd1013 !important; //#cd1013
 }
 
 #tabs a, #tabs span.quiet {
