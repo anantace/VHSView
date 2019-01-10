@@ -20,12 +20,29 @@ class UebersichtController extends StudipController {
         parent::before_filter($action, $args);
         
         //autonavigation
-         Navigation::activateItem("course/uebersicht");
+        Navigation::activateItem("course/uebersicht");
+        PageLayout::setTitle(Course::findCurrent()->name . ' - Übersicht');
+
     }
 
     public function index_action() {
-        global $user;
+        global $user, $perm;
         $this->user_id = $user->id;
+        
+         global $user, $perm;
+        $this->user_id = $user->id;
+        
+        if (true || $perm->have_studip_perm('dozent', $this->course->id)){
+            $actions = new ActionsWidget();
+            $actions->setTitle(_('Aktionen'));
+
+            $actions->addLink(
+            'Einstellungen',
+            $this->url_for('start/settings'),'icons/16/blue/add.png'); 
+
+            Sidebar::get()->addWidget($actions);
+        }
+        
         
         $this->courses = $user->course_memberships;
         //foreach ($courses as $cm){
@@ -190,5 +207,24 @@ class UebersichtController extends StudipController {
         }
 
     }
+    
+     // customized #url_for for plugins
+    public function url_for($to)
+    {
+        $args = func_get_args();
+
+        # find params
+        $params = array();
+        if (is_array(end($args))) {
+            $params = array_pop($args);
+        }
+
+        # urlencode all but the first argument
+        $args = array_map('urlencode', $args);
+        $args[0] = $to;
+
+        return PluginEngine::getURL($this->dispatcher->current_plugin, $params, join('/', $args));
+    }
+    
 
 }
