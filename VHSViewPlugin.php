@@ -20,24 +20,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		global $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
         $referer = $_SERVER['REQUEST_URI'];
-        
-        //autoren werden zur alternativen startseite weitergeleitet
-        $kursteilnehmer = !$perm->have_Perm('tutor');
-        
-        //eigene Startseite für Kursteilnehmer
-        if($kursteilnehmer){
-            
-            PageLayout::addStylesheet($this->getPluginUrl() . '/css/tn_startseite.css');
-            $this->setupNavigationForKursteilnehmer();
-           
-            //Kursteilnehmer werden statt auf die allgemeine Startseite auf alternative Startseite weitergeleitet
-            if ( $referer!=str_replace("dispatch.php/start","",$referer)){
-				
-				//$result = $this->getSemStmt($GLOBALS['user']->id);
-				header('Location: '. $GLOBALS['ABSOLUTE_URI_STUDIP']. 'plugins.php/VHSViewPlugin/start/', true, 303);
-				exit();	
-			} 
-        }
+
         //brauch ich das wirklich?
 		$path = explode(VHSViewPlugin::URL, $referer);
 		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
@@ -69,7 +52,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
             }
         
         if (Navigation::hasItem('/start')){
-            Navigation::getItem('/start')->setURL( PluginEngine::getLink($this, array(), 'start/'));
+            //Navigation::getItem('/start')->setURL( PluginEngine::getLink($this, array(), 'start/'));
         
             if (Navigation::hasItem('/start/my_courses')){
                 Navigation::removeItem('/start/my_courses');
