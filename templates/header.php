@@ -9,8 +9,20 @@
         </div>
          -->
         <div id="barTopFont">
-            <?= htmlReady($GLOBALS['UNI_NAME_CLEAN']) ?>
         </div>
+         
+        <a href="https://www.vhs-whv.de/" title="Website kvhs Wilhelmshaven" target="_blank">
+            <div id="wrapper" style="z-index:1; position:absolute; left:700px;overflow:hidden;width:751px;height:140px;"> 
+ 		        <div class="slider-wrapper"> 
+ 		            <div id="slider" class="nivoSlider"> 
+ 		               <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/header.jpg") ?>" data-transition="fade"> 
+                    </div> 
+ 		        </div>
+            </div>
+        </a>
+         
+         
+         
         <? SkipLinks::addIndex(_('Hauptnavigation'), 'barTopMenu', 1); ?>
         <ul id="barTopMenu" role="navigation">
             <? $accesskey = 0 ?>
@@ -51,10 +63,7 @@
             <? endforeach ?>
         </ul>
     </div>
-    <!-- Stud.IP Logo -->
-    <a class="studip-logo" id="barTopStudip" href="http://www.vhs-os.de/" title="Homepage der VHS Osnabrück" target="_blank">
-        Homepage der VHS Osnabrück
-    </a>
+   
 </div>
 
 <!-- Leiste unten -->
@@ -125,4 +134,3 @@
     </div>
 </div>
 <!-- Ende Header -->
-
