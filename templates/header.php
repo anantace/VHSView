@@ -11,11 +11,11 @@
         <div id="barTopFont">
         </div>
          
-        <a href="https://www.vhs-whv.de/" title="Website kvhs Wilhelmshaven" target="_blank">
-            <div id="wrapper" style="z-index:1; position:absolute; left:700px;overflow:hidden;width:751px;height:140px;"> 
+        <a href="https://kvhs-wsm.de/vhs/" title="Website kvhs Wesermarsch" target="_blank">
+            <div id="wrapper" style="z-index:1; position:absolute; left:850px;overflow:hidden;width:751px;height:160px;"> 
  		        <div class="slider-wrapper"> 
  		            <div id="slider" class="nivoSlider"> 
- 		               <img src="<?= URLHelper::getLink("plugins_packages/asudau@elan-ev.de/VHSViewPlugin/images/header.jpg") ?>" data-transition="fade"> 
+ 		               <img src="<?= URLHelper::getLink("plugins_packages/elan-ev/VHSViewPlugin/images/header_rechts.png") ?>" data-transition="fade"> 
                     </div> 
  		        </div>
             </div>

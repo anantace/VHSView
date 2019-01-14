@@ -1,7 +1,7 @@
 #barTopStudip.studip-logo{
-	background-image: none, url("../images/logo.png");
-	background-size: 360px 115px;
-	height: 95px;
+    background-image: none, url("../images/logo.png");
+    background-size: 360px 115px;
+    height: 122px;
     width: 360px;
 }
 
@@ -32,14 +32,14 @@ a, a:link, a:visited {
 
 #barTopFont { 
     background-image: none, url("../images/logo.png") !important;
-    background-size: 300px 70px !important;
+    background-size: 360px 100px !important;
     display: block !important;
-    width: 300px !important;
-    height: 70px !important;
+    width: 360px !important;
+    height: 100px !important;
 }
 
 #barTopMenu {
-    top: 80px !important;
+    top: 100px !important;
 }
 
 #barTopMenu a { 
@@ -52,7 +52,7 @@ color: #00285a !important;
 } 
 
 #header {
-    height: 140px !important;
+    height: 160px !important;
 }
 
 body { 
@@ -315,7 +315,15 @@ color: #fff !important;
      filter: none;
  }
 
+/*helleres grau für header */
+.sidebar .sidebar-widget-header {
+    background: #eee !important;
+}
 
+table.default > thead > tr > th {
+    background-color: #eee !important;
+}
+ 
 .cronjobs-edit > table > thead > tr > th { 
 background-color: #00285a !important; 
 }
@@ -329,8 +337,7 @@ background-color: #d4dbe6 !important;
 }
 
 .studip-widget .widget-header {
-background-color: #00285a !important;
-color: white !important;
+background-color: #eee !important;
 }
 
 .addclip-widgets li { 

@@ -32,10 +32,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
                     $navigation = new Navigation(_('Kontakte'), 'dispatch.php/contact');
                     Navigation::getItem('/messaging')->addSubNavigation('contacts', $navigation);
         }
-        if (Navigation::hasItem('/community/contacts')){
-			Navigation::removeItem('/community/contacts');
-        }
-                
+           
                 
 		//Wer kein Admin ist erhält eine stark reduzierte Navigation
 		if (!$perm->have_perm('admin') && is_object($user)) {
