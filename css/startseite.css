@@ -1,101 +1,47 @@
-/* Startseite und Loginseite */
-
-#login_badge {
-    position: relative !important;
-    right: -790px !important;
-    top: -210px !important;
+ #barTopStudip {
+    background-image: url('images/logos/SVGlogoAI.svg') !important;
+    bottom: 30px !important;
+    right: 40px !important;
+    width: 300px !important;
+    height: 110px !important;
+    background-size: cover;
 }
-
-#tabs li.current {
-    background-image: linear-gradient(to bottom, #eeeeee, #ffffff) !important;
-}
-
-#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
-    -webkit-filter: brightness(1000%) !important;
-}
-
-div.index_container{
-    margin: 0 auto !important;
-    width: 1000px !important;
-}
-div.index_container div.index_main {
-    background-size: 1000px 258px !important;
-}
-
-table.logintable {
-    width: 750px !important;
-	margin: auto !important;
-}
-
-#layout_page .index_container  .index_main footer {
-    margin-top: -130px !important;
-}
-
-/* Hintergrund */
-body {
-    background: #97bee2 url("../images/background.png") repeat-x scroll 0 0 !important;
-	}
-
-
-/* Header und Icons */		
-
-
-#barTopFont {
-    color: #3f71a0 !important;
-    font-size: 16pt !important;
-    font-weight: 400 !important;
-}
-
 #flex-header {
-    background-image: url("../images/background_header.png") !important;
-    position: relative !important;
+    background-color: #ccc !important;
+    background-image: none !important;
 }
 
-
-#barTopMenu a:hover, #barTopMenu li.active a {
-    color: #fff !important;
-}
-#barTopMenu a {
-    color: #3f71a0 !important;
+body {
+    background-color: #ccc !important;
+    background-image: none !important;
 }
 
-
-
-/* Querbalken & Tabs*/
-
-#tabs li {
-    background-color: #3f71a0 !important;
+#barBottomLeft, #barBottommiddle, #barBottomright {
+    background-color: #265797 !important;
 }
 
-#barBottomright:before{
-	display: none !important;
+#tabs li, .smiley-tabs li {
+    background-color: #265797 !important;
 }
 
-#barBottomLeft:before{
-	border-color: rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) rgba(137, 154, 185, 0) #3f71a0 !important;
+#tabs li.current, #tabs li.current:hover, .smiley-tabs li.current, .smiley-tabs li.current:hover {
+    background-color: #fff !important;
 }
 
-#barBottommiddle:before{
-	background-color: #3f71a0 !important;
-    background-image: linear-gradient(to right, #36598f, #3f71a0)!important;
+#barBottomLeft::before, #barBottommiddle::before, #barBottomright::before{
+    background-color: #265797 !important;
+    background-image: none !important;
+    border-left-color: #265797 !important;
 }
 
 #barBottomContainer {
-    background-color: #3f71a0 !important;
-    border-color: #3f71a0 !important;
+    background-color: #265797 !important;
 }
 
-#barBottomLeft, #barBottommiddle, #barBottomright{
-	background-color: #3f71a0 !important;
-    color: #fff !important;
+#barTopMenu a:hover canvas, #barTopMenu li.active a canvas, #barTopMenu a:hover img, #barTopMenu li.active a img {
+    filter: brightness(1000%) !important;
 }
 
-.table_header_bold {
-    background-color: #3f71a0 !important;
-    border-color: #3f71a0 !important; 
-}
-
-#layout_footer {
-    background-color: #3f71a0 !important;
-    border-top: 1px solid #3f71a0 !important;
+#barTopMenu a {
+    color: #265797 !important;
 }
