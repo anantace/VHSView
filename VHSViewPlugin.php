@@ -36,8 +36,11 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		if (!$perm->have_perm('admin') && $user->id != 'nobody') {
  
 			if (Navigation::hasItem('/search')){
-                            Navigation::removeItem('/search');	
+                Navigation::removeItem('/search');	
 			}
+             if (Navigation::hasItem('/community')){
+                Navigation::removeItem('/community');
+            }
 			
 			if (Navigation::hasItem('/tools')){
 				if (!$perm->have_perm('dozent')) {
@@ -49,9 +52,6 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					}
                     if (Navigation::hasItem('/calendar/schedule')){
                         Navigation::removeItem('/calendar/schedule');
-                    }
-                    if (Navigation::hasItem('/community')){
-                        Navigation::removeItem('/community');
                     }
 				}
 			}
