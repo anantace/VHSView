@@ -1,6 +1,6 @@
 pluginclassname=VHSViewPlugin
 pluginname=VHSViewPlugin
 origin=asudau@elan-ev.de
-version=2.0-Ammerland
-studipMinVersion=3.4
-studipMaxVersion=3.5
+version=3.0-Ammerland
+studipMinVersion=4.0
+studipMaxVersion=4.2.99
