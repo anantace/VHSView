@@ -1,17 +1,140 @@
-<?
+<?php
 # Lifter010: TODO
+
+$nav_items = Navigation::getItem('/')->getIterator()->getArrayCopy();
+$nav_items = array_filter($nav_items, function ($item) {
+    return $item->isVisible(true);
+});
+
+$header_nav = ['visible' => $nav_items, 'hidden' => []];
+if (isset($_COOKIE['navigation-length'])) {
+    $header_nav['hidden'] = array_splice(
+        $header_nav['visible'],
+        $_COOKIE['navigation-length']
+    );
+}
 ?>
+
+<!-- Leiste unten -->
+<div id="barBottomContainer">
+    <div id="barBottomLeft">
+        <input type="checkbox" id="barTopMenu-toggle">
+        <label for="barTopMenu-toggle">
+            <?= _('Menü') ?>
+        </label>
+        <? // The main menu will be placed here when scrolled, see navigation.less ?>
+    </div>
+    <div id="barTopFont">
+        <?= htmlReady(Config::get()->UNI_NAME_CLEAN) ?>
+    </div>
+
+    <!-- Dynamische Links ohne Icons -->
+    <div id="barBottomright">
+        <ul>
+
+        <? if (Navigation::hasItem('/links')): ?>
+            <? foreach (Navigation::getItem('/links') as $nav): ?>
+                <? if ($nav->isVisible()) : ?>
+                    <li class="<? if ($nav->isActive()) echo 'active'; ?> <?= htmlReady($nav->getLinkAttributes()['class']) ?>">
+                        <a
+                            <? if (is_internal_url($url = $nav->getURL())) : ?>
+                                href="<?= URLHelper::getLink($url) ?>"
+                            <? else: ?>
+                                href="<?= htmlReady($url) ?>" target="_blank" rel="noopener noreferrer"
+                            <? endif; ?>
+                            <? if ($nav->getDescription()): ?>
+                                title="<?= htmlReady($nav->getDescription()) ?>"
+                            <? endif; ?>
+                            ><?= htmlReady($nav->getTitle()) ?></a>
+                    </li>
+                <? endif; ?>
+            <? endforeach; ?>
+        <? endif; ?>
+
+        <? if (isset($search_semester_nr)) : ?>
+            <? if (PageLayout::hasCustomQuicksearch()): ?>
+                <?= PageLayout::getCustomQuicksearch() ?>
+            <? endif; ?>
+        <? endif; ?>
+
+        <? if (is_object($GLOBALS['perm']) && $GLOBALS['perm']->have_perm('user')): ?>
+            <? $active = Navigation::hasItem('/profile')
+                      && Navigation::getItem('/profile')->isActive();
+            ?>
+
+            <!-- User-Avatar -->
+            <li class="header_avatar_container <? if ($active) echo 'active'; ?>" id="barTopAvatar">
+
+            <? if (is_object($GLOBALS['perm']) && PersonalNotifications::isActivated() && $GLOBALS['perm']->have_perm('autor')) : ?>
+                <? $notifications = PersonalNotifications::getMyNotifications() ?>
+                <? $lastvisit = (int)UserConfig::get($GLOBALS['user']->id)->getValue('NOTIFICATIONS_SEEN_LAST_DATE') ?>
+                <div id="notification_container"<?= count($notifications) > 0 ? ' class="hoverable"' : '' ?>>
+                    <? foreach ($notifications as $notification) {
+                        if ($notification['mkdate'] > $lastvisit) {
+                            $alert = true;
+                        }
+                    } ?>
+                    <div id="notification_marker"<?= $alert ? ' class="alert"' : "" ?> title="<?= _("Benachrichtigungen") ?>" data-lastvisit="<?= $lastvisit ?>">
+                        <?= count($notifications) ?>
+                    </div>
+                    <div class="list below" id="notification_list">
+                        <a class="mark-all-as-read <? if (count($notifications) < 2) echo 'hidden'; ?>" href="<?= URLHelper::getLink('dispatch.php/jsupdater/mark_notification_read/all', ['return_to' => $_SERVER['REQUEST_URI']]) ?>">
+                            <?= _('Alle Benachrichtigungen als gelesen markieren') ?>
+                        </a>
+                        <ul>
+                        <? foreach ($notifications as $notification) : ?>
+                            <?= $notification->getLiElement() ?>
+                        <? endforeach ?>
+                        </ul>
+                    </div>
+                <? if (PersonalNotifications::isAudioActivated()): ?>
+                    <audio id="audio_notification" preload="none">
+                        <source src="<?= Assets::url('sounds/blubb.ogg') ?>" type="audio/ogg">
+                        <source src="<?= Assets::url('sounds/blubb.mp3') ?>" type="audio/mpeg">
+                    </audio>
+                <? endif; ?>
+                </div>
+            <? else: ?>
+                <div id="notification_container"></div>
+            <? endif; ?>
+
+            <? if (Navigation::hasItem('/avatar')): ?>
+                <div id="header_avatar_menu">
+                <?php
+                $action_menu = ContentGroupMenu::get();
+                $action_menu->addCSSClass('avatar-menu');
+                $action_menu->addAttribute('data-action-menu-reposition', 'false');
+                $action_menu->setLabel(User::findCurrent()->getFullName());
+                $action_menu->setAriaLabel(_("Profilmenü"));
+                $action_menu->setIcon(Avatar::getAvatar(User::findCurrent()->id)->getImageTag(Avatar::MEDIUM));
+
+                foreach (Navigation::getItem('/avatar') as $subnav) {
+                    $action_menu->addLink(
+                        URLHelper::getURL($subnav->getURL(), [], true),
+                        $subnav->getTitle(),
+                        $subnav->getImage()
+                    );
+                }
+                SkipLinks::addIndex(_("Profilmenü"), "header_avatar_menu", 2);
+                ?>
+                <?= $action_menu->render(); ?>
+                </div>
+            <? endif; ?>
+            </li>
+        <? endif; ?>
+
+        </ul>
+    </div>
+</div>
+<!-- Ende Header -->
+
 <!-- Start Header -->
 <div id="flex-header">
-    <div id="header">
-        <!--<div id='barTopLogo'>
-            <?= Assets::img('logos/logoneu.jpg', array('alt' => 'Logo Uni G�ttingen')) ?>
-        </div>
-         -->
-        <div id="barTopFont">
-        </div>
+    <div id='barTopLogo'>
         
-        <a href="http://www.kvhs-ammerland.de/index.php?id=6" title="Website kvhs Ammerland" target="_blank">
+    </div>
+
+    <a href="http://www.kvhs-ammerland.de/index.php?id=6" title="Website kvhs Ammerland" target="_blank">
           <div id="wrapper" style="z-index:1; position:absolute; left:400px;overflow:hidden;width:751px;height:140px;"> 
  		        <div class="slider-wrapper"> 
  		                    <div id="slider" class="nivoSlider"> 
@@ -32,106 +155,45 @@
                             </div>
                      </div>
            </a>
-			
-            
-        <? SkipLinks::addIndex(_('Hauptnavigation'), 'barTopMenu', 1); ?>
-        <ul id="barTopMenu" role="navigation">
-            <? $accesskey = 0 ?>
-            <? foreach (Navigation::getItem('/') as $path => $nav) : ?>
-                <? if ($nav->isVisible(true)) : ?>
-                    <?
-                    $accesskey_attr = '';
-                    $image = $nav->getImage();
-                    $link_attributes = $nav->getLinkAttributes();
+     
 
-                    if ($accesskey_enabled) {
-                        $accesskey      = ++$accesskey % 10;
-                        $accesskey_attr = 'accesskey="' . $accesskey . '"';
-                        $link_attributes['title'] .= "  [ALT] + $accesskey";
-                    }
+    <? SkipLinks::addIndex(_('Hauptnavigation'), 'barTopMenu', 1); ?>
+    <ul id="barTopMenu" role="navigation" <? if (count($header_nav['hidden']) > 0) echo 'class="overflown"'; ?>>
+    <? foreach ($header_nav['visible'] as $path => $nav): ?>
+        <?= $this->render_partial(
+            'header-navigation-item.php',
+            compact('path', 'nav', 'accesskey_enabled')
+        ) ?>
+    <? endforeach; ?>
+        <li class="overflow">
+            <input type="checkbox" id="header-sink">
+            <label for="header-sink">
+                <a class="canvasready" href="#">
+                    <?= Icon::create('action', 'navigation')->asImg(28, [
+                        'class'  => 'headericon original',
+                        'title'  => '',
+                        'alt'    => '',
+                    ]) ?>
+                    <br>
+                    <div class="navtitle">
+                        <?= _('Mehr') ?>&hellip;
+                    </div>
+                </a>
+            </label>
 
-                    ?>
-                    <li id="nav_<?= $path ?>"<? if ($nav->isActive()) : ?> class="active"<? endif ?>>
-                        <a href="<?= URLHelper::getLink($nav->getURL(), $link_params) ?>" title="<?= $link_attributes['title'] ?>" <?= $accesskey_attr ?> data-badge="<?= (int)$nav->getBadgeNumber() ?>">
-                            <?= $image->asImg(['class' => 'headericon original']) ?>
-                            <br>
-                            <?= htmlReady($nav->getTitle()) ?>
-                        </a>
-                    </li>
-                <? endif ?>
-            <? endforeach ?>
-        </ul>
-        <!-- Stud.IP Logo -->
-    
-    </div>
-    
-</div>
-
-<!-- Leiste unten -->
-<div id="barBottomContainer" <?= $public_hint ? 'class="public_course"' : '' ?>>
-    <div id="barBottomLeft">
-    <? if ($current_page): ?>
-        <div class="current_page"><?= _('Aktuelle Seite:') ?></div>
-    <? endif; ?>
-    </div>
-    <div id="barBottommiddle">
-        <?= ($current_page != "" ? htmlReady($current_page) : "") ?>
-        <?= $public_hint ? '(' . htmlReady($public_hint) . ')' : '' ?>
-    </div>
-    <!-- Dynamische Links ohne Icons -->
-    <div id="barBottomright">
-        <ul>
-        <? if (is_object($GLOBALS['perm']) && PersonalNotifications::isActivated() && $GLOBALS['perm']->have_perm("autor")) : ?>
-            <? $notifications = PersonalNotifications::getMyNotifications() ?>
-            <? $lastvisit = (int)UserConfig::get($GLOBALS['user']->id)->getValue('NOTIFICATIONS_SEEN_LAST_DATE') ?>
-            <li id="notification_container"<?= count($notifications) > 0 ? ' class="hoverable"' : "" ?>>
-                <? foreach ($notifications as $notification) {
-                    if ($notification['mkdate'] > $lastvisit) {
-                        $alert = true;
-                    }
-                } ?>
-                <div id="notification_marker"<?= $alert ? ' class="alert"' : "" ?> title="<?= _("Benachrichtigungen") ?>" data-lastvisit="<?= $lastvisit ?>">
-                    <?= count($notifications) ?>
-                </div>
-                <div class="list below" id="notification_list">
-                    <ul>
-                        <? foreach ($notifications as $notification) : ?>
-                            <?= $notification->getLiElement() ?>
-                        <? endforeach ?>
-                    </ul>
-                </div>
-                <? if (PersonalNotifications::isAudioActivated()) : ?>
-                    <audio id="audio_notification" preload="none">
-                        <source src="<?= Assets::url('sounds/blubb.ogg') ?>" type="audio/ogg">
-                        <source src="<?= Assets::url('sounds/blubb.mp3') ?>" type="audio/mpeg">
-                    </audio>
-                <? endif ?>
-            </li>
-        <? endif ?>
-        <? if (isset($search_semester_nr)) : ?>
-            <li>
-                           </li>
-        <? endif ?>
-        <? if (Navigation::hasItem('/links')): ?>
-            <? foreach (Navigation::getItem('/links') as $nav): ?>
-                <? if ($nav->isVisible()) : ?>
-                    <li <? if ($nav->isActive()) echo 'class="active"'; ?>>
-                        <a
-                            <? if (is_internal_url($url = $nav->getURL())) : ?>
-                                href="<?= URLHelper::getLink($url) ?>"
-                            <? else: ?>
-                                href="<?= htmlReady($url) ?>" target="_blank"
-                            <? endif; ?>
-                            <? if ($nav->getDescription()): ?>
-                                title="<?= htmlReady($nav->getDescription()) ?>"
-                            <? endif; ?>
-                            ><?= htmlReady($nav->getTitle()) ?></a>
-                    </li>
-                <? endif; ?>
+            <ul>
+            <? foreach ($header_nav['hidden'] as $path => $nav) : ?>
+                <?= $this->render_partial(
+                    'header-navigation-item.php',
+                    compact('path', 'nav', 'accesskey_enabled')
+                ) ?>
             <? endforeach; ?>
-        <? endif; ?>
-        </ul>
-    </div>
-</div>
-<!-- Ende Header -->
+            </ul>
+        </li>
+    </ul>
 
+    <!-- Stud.IP Logo -->
+    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank" rel="noopener noreferrer">
+        Stud.IP Homepage
+    </a>
+</div>
