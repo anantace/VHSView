@@ -1,6 +1,6 @@
 
 body:not(.fixed) #barTopMenu > li {
-    width: 90px !important;
+    width: 75px !important;
 }
 
 #flex-header {
@@ -23,6 +23,17 @@ body:not(.fixed) #barTopMenu > li {
 
 #layout_wrapper {
     background-color: #fff !important;
+}
+
+#barBottomContainer {
+    background-color: #00285a !important;
+}
+
+#layout_footer{
+    background-color: #fff !important;
+}
+#layout_footer a{
+    color: #00285a !important;
 }
 
 #flex-header {
@@ -98,6 +109,33 @@ div.index_container div.index_main footer {
     margin-top:15px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.widget-links.sidebar-navigation > li.active {
+    background-color: #00285a !important;
+}
+
+body:not(.fixed) #barTopMenu img {
+    -webkit-filter: hue-rotate(350deg) saturate(8.7%) brightness(177.3%) !important;
+    filter: hue-rotate(350deg) saturate(6.7%) brightness(307.3%) !important;
+}
+
+.studip-widget .widget-header {
+    background-color: #00285a !important;
+    color: white !important;
+}
+
+.header-options .icon-role-clickable {
+    -webkit-filter: hue-rotate(350deg) saturate(8.7%) brightness(177.3%) !important;
+    filter: hue-rotate(350deg) saturate(6.7%) brightness(807.3%) !important;
+}
+
+div#layout-sidebar div.sidebar-image img {
+    filter: hue-rotate(0deg) saturate(120%) brightness(60%);
+}
+
+.course-avatar-medium {
+    filter: none !important;
 }
 
 /*
@@ -231,12 +269,7 @@ border-top: 1px solid #00285a !important;
 background: #CCD5DE !important; 
 }
 
-#layout_footer{
-background-color: #fff !important;
-}
-#layout_footer a{
-color: #00285a !important;
-}
+
 
 #footer{
 color: #00285a !important;
@@ -247,9 +280,7 @@ color: #00285a !important;
 background-color: #00285a !important; 
 }
 
-#barBottomContainer {
-background-color: #00285a !important;
-}
+
 
 #barBottomLeft, #barBottommiddle, 
 #barBottomright { 
@@ -307,13 +338,6 @@ border-bottom: 1px solid rgba(42, 76, 128, 0.2) !important;
 }
 
 
-div#layout-sidebar div.sidebar-image img {
-    filter: hue-rotate(0deg) saturate(120%) brightness(60%);
-}
-
-.course-avatar-medium {
-    filter: none !important;
-}
 
 .sidebar-widget-content {
 border-top: 1px solid #CCD5DE !important;
@@ -401,11 +425,6 @@ background-color: #d4dbe6 !important;
 
 #study_area_selection .even { 
 background-color: #d4dbe6 !important;
-}
-
-.studip-widget .widget-header {
-background-color: #00285a !important;
-color: white !important;
 }
 
 .addclip-widgets li { 
