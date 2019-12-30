@@ -1,90 +1,89 @@
-<?
+<?php
 # Lifter010: TODO
+
+// Get background images (this should be resolved differently since mobile
+// browsers might still download the desktop background)
+$bg_desktop = LoginBackground::getRandomPicture('desktop');
+if ($bg_desktop) {
+    $bg_desktop = $bg_desktop->getURL();
+} else {
+    $bg_desktop = URLHelper::getURL('pictures/loginbackgrounds/1.jpg');
+}
+$bg_mobile = LoginBackground::getRandomPicture('mobile');
+if ($bg_mobile) {
+    $bg_mobile = $bg_mobile->getURL();
+} else {
+    $bg_mobile = URLHelper::getURL('pictures/loginbackgrounds/2.jpg');
+}
 ?>
 <!-- Startseite (nicht eingeloggt) -->
+<ul id="tabs" role="navigation"></ul>
 <? if ($logout) : ?>
-    <?= MessageBox::success(_("Sie sind nun aus dem System abgemeldet."), array($GLOBALS['UNI_LOGOUT_ADD'])) ?>
+    <?= MessageBox::success(_("Sie sind nun aus dem System abgemeldet."), array_filter([$GLOBALS['UNI_LOGOUT_ADD']])) ?>
 <? endif; ?>
 
+<div id="background-desktop" style="background: url(<?= $bg_desktop ?>) no-repeat top left/cover;"></div>
+<div id="background-mobile" style="background: url(<?= $bg_mobile ?>) no-repeat top left/cover;"></div>
 <div class="index_main">
-    <div id ="vhs_title" >kvhs Ammerland & <br> kvhs Ammerland gGmbH</div>
+	<div id ="vhs_title" >kvhs Ammerland & <br> kvhs Ammerland gGmbH</div>
     <nav>
-        
         <? foreach (Navigation::getItem('/login') as $key => $nav) : ?>
             <? if ($nav->isVisible()) : ?>
                 <? list($name, $title) = explode(' - ', $nav->getTitle()) ?>
                 <div class="login_link">
+                    <? SkipLinks::addLink($name, $url) ?>
                     <? if (is_internal_url($url = $nav->getURL())) : ?>
                         <a href="<?= URLHelper::getLink($url) ?>">
                     <? else : ?>
-                        <a href="<?= htmlReady($url) ?>" target="_blank">
+                        <a href="<?= htmlReady($url) ?>" target="_blank" rel="noopener noreferrer">
                     <? endif ?>
-                    <? SkipLinks::addLink($name, $url) ?>
-                        <?= htmlReady($name) ?>
+                            <?= htmlReady($name) ?>
                             <p>
-                                <?= htmlReady($title ? $title : $nav->getDescription()) ?>
+                                <?= htmlReady($title ?: $nav->getDescription()) ?>
                             </p>
                         </a>
                 </div>
             <? endif ?>
         <? endforeach ?>
-
-
     </nav>
     <footer>
-        <? if ($GLOBALS['UNI_LOGIN_ADD']) : ?>
-            <div class="uni_login_add">
-                <?= $GLOBALS['UNI_LOGIN_ADD'] ?>
+    <? if ($GLOBALS['UNI_LOGIN_ADD']) : ?>
+        <div class="uni_login_add">
+            <?= $GLOBALS['UNI_LOGIN_ADD'] ?>
+        </div>
+    <? endif; ?>
+
+        <div id="languages">
+        <? foreach ($GLOBALS['INSTALLED_LANGUAGES'] as $temp_language_key => $temp_language): ?>
+            <a href="index.php?set_language=<?= $temp_language_key ?>">
+                <?= Assets::img('languages/' . $temp_language['picture'], tooltip2($temp_language['name'])) ?>
+                <?= htmlReady($temp_language['name']) ?>
+            </a>
+        <? endforeach; ?>
+        </div>
+
+        <div class="login_info">
+            <div>
+                <?= _('Aktive Veranstaltungen') ?>:
+                <?= number_format($num_active_courses, 0, ',', '.') ?>
             </div>
-        <? endif; ?>
 
-        <table class="login_info">
-            <tr>
-                <td>
-                    <?= _("Aktive Veranstaltungen") ?>
-                </td>
-                <td>
-                    <?= $num_active_courses ?>
-                </td>
-            </tr>
+            <div>
+                <?= _('Registrierte NutzerInnen') ?>:
+                <?= number_format($num_registered_users, 0, ',', '.') ?>
+            </div>
 
-            <tr>
-                <td>
-                    <?= _("Registrierte NutzerInnen") ?>
-                </td>
-                <td>
-                    <?= $num_registered_users ?>
-                </td>
-            </tr>
+            <div>
+                <?= _('Davon online') ?>:
+                <?= number_format($num_online_users, 0, ',', '.') ?>
+            </div>
 
-            <tr>
-                <td>
-                    <?= _("Davon online") ?>
-                </td>
-                <td>
-                    <?= $num_online_users ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <? foreach ($GLOBALS['INSTALLED_LANGUAGES'] as $temp_language_key => $temp_language): ?>
-                        <a href="index.php?set_language=<?= $temp_language_key ?>">
-                            <?= Assets::img('languages/' . $temp_language['picture'], tooltip2($temp_language['name'])) ?>
-                        </a>
-                    <? endforeach; ?>
-                </td>
-                <td>
-                    <a href="dispatch.php/siteinfo/show">
-                        <?= _("mehr") ?>...
-                    </a>
-                </td>
-            </tr>
-        </table>
-
-        <a href="http://www.studip.de">
-            <?= Assets::img('logos/logoklein@2x.png', tooltip2(_('Zur Portalseite')) + array('size' => '215@83')) ?>
-        </a>
+            <div>
+                <a href="dispatch.php/siteinfo/show">
+                    <?= _('mehr') ?> &hellip;
+                </a>
+            </div>
+        </div>
     </footer>
 </div>
 
@@ -102,7 +101,7 @@ $items_reverse = array_reverse($items, true);
 } 
 ?>
 
-<table id='feed' class='index_box' style='width: 100%;margin-top:15px'>
+<table id='feed' class='index_box'>
 <tr>
 <td class="table_header_bold"><b>News und Infos</b></td><tr>
 
