@@ -1,14 +1,107 @@
+
+body:not(.fixed) #barTopMenu > li {
+    width: 90px !important;
+}
+
+#flex-header {
+    height: 140px !important;
+}
+
+#barTopLogo{
+    background-image: none, url("../images/logos/logo_kvhs.gif") !important;
+    background-size: 123px 70px !important; 
+    background-repeat: no-repeat;
+    display: block !important;
+    width: 123px !important;
+    height: 70px !important;
+    left: 10px !important;
+}
+
+#wrapper {
+    top: 0px;
+}
+
+#layout_wrapper {
+    background-color: #fff !important;
+}
+
+#flex-header {
+    background-image: none !important;
+    background-color: #fff !important;
+}
 #flex-header {
     width: 1100px !important;
     margin-left: auto;
     margin-right: auto;
 }
 
-#vhs_title {
-color: #ccc !important;
-padding: 120px 0px 0px 120px;
-font-size: 20px;
+#barBottomLeft, #barBottommiddle { 
+    padding-top: 10px;
 }
+
+div.index_container div.index_main footer {  
+padding: 10px 5px 5px !important;
+}
+
+div.index_container div.index_main nav{
+    margin: 20px 100px 120px 100px !important;
+}
+
+div.index_container div.index_main {
+    background: url('../images/startseite.png') no-repeat left top;
+    background-color: #FFFFFF;
+    background-size: 750px 500px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+div.index_container div.index_main nav {
+    padding: 10px;
+    margin: 20px;
+    background-color: rgba(255,255,255,0.8);
+    display: inline-block;
+    width: 414px;
+}
+
+#vhs_title {
+    color: #ccc !important;
+    padding: 120px 0px 0px 120px;
+    font-size: 20px;
+}
+
+.vhs-login {
+    padding: 10px;
+    margin: 20px;
+    background-color: rgba(255,255,255,0.8);
+    display: inline-block;
+    width: 414px;
+}
+
+div.index_container div.index_main footer {
+    padding: 10px 5px 5px !important;
+}
+div.index_container div.index_main footer {
+    background-color: white;
+    overflow: auto;
+    padding: 5px;
+}
+
+.table_header_bold {
+    background-color: #00285a !important;
+} 
+
+#feed.index_box {
+    width: 750px;
+    margin-top:15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
@@ -30,13 +123,7 @@ color: #00285a !important;
 font-weight: 400 !important;
 }
 
-#barTopFont{
-background-image: none, url("../images/logos/logo_kvhs.gif") !important;
-background-size: 123px 70px !important; 
-display: block !important;
-width: 123px !important;
-height: 70px !important;
-}
+
 
 #barTopMenu {
     top: 80px !important;
@@ -61,29 +148,14 @@ background: #fff !important;
 margin: 0px !important;
 }
 
-div.index_container div.index_main footer {  
-padding: 10px 5px 5px !important;
-}
 
-div.index_container div.index_main nav{
-    margin: 20px 100px 120px 100px !important;
-}
-
-div.index_container div.index_main {
-    background: url('../images/startseite.png') no-repeat left top;
-    background-color: #FFFFFF;
-    background-size: 750px 500px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-}
 
 #flex-header { 
 background-image: none !important;
 background-color: #fff !important;
 }
 
-.table_header_bold {
-background-color: #00285a !important;
-} 
+
 
 table.toolbar {
 border-top: 1px solid #00285a !important;
@@ -368,4 +440,4 @@ background: #00285a !important;
 
  
 
-
+*/
