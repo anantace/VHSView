@@ -1,10 +1,19 @@
 
 body:not(.fixed) #barTopMenu > li {
-    width: 75px !important;
+    height: 70px !important;
+    width: 70px !important;
+    background-color: #fff;
+    border-radius: 30px;
+    opacity: 0.8;
 }
+
 
 #flex-header {
     height: 140px !important;
+}
+
+body:not(.fixed) #barTopMenu a {
+    padding-top: 15px !important;
 }
 
 #barTopLogo{
