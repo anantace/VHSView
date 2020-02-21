@@ -93,7 +93,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				$count = $stmt->rowCount();
 				if($count == 1){
 					$result = $stmt->fetch();
-					Navigation::getItem('/browse')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/browse')->setURL(URLHelper::getLink("seminar_main.php?cid=". $result['seminar_id']));
 					Navigation::getItem('/browse')->setTitle("Mein Kurs");	
 				}
 				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
@@ -112,7 +112,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				$count = $stmt->rowCount();
 				if($count == 1){
 					$result = $stmt->fetch();
-					Navigation::getItem('/course')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/course')->setURL(URLHelper::getLink("seminar_main.php?cid=". $result['seminar_id']));
 					Navigation::getItem('/course')->setTitle("Mein Kurs");
 				}
 				
@@ -137,7 +137,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				$count = $stmt->rowCount();
 				if($count == 1){
 					$result = $stmt->fetch();
-					Navigation::getItem('/start/my_courses')->setURL("/seminar_main.php?auswahl=". $result['seminar_id']);
+					Navigation::getItem('/start/my_courses')->setURL(URLHelper::getLink("seminar_main.php?cid=". $result['seminar_id']));
 					Navigation::getItem('/start/my_courses')->setTitle("Mein Kurs");
 				}
 				if($count == 0){
@@ -148,7 +148,15 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				}
 				
 			}
+            
+            if (Navigation::hasItem('/start/planner/schedule')){
+					Navigation::removeItem('/start/planner/schedule');
+			}
 			
+            if (Navigation::hasItem('/start/community')){
+					Navigation::removeItem('/start/community');
+			}
+            
 			if (Navigation::hasItem('/start/community/browse')){
 					Navigation::removeItem('/start/community/browse');
 			}
@@ -159,7 +167,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		}
 		
 		
-		//für nobody/nicht eingeloggt
+		//fï¿½r nobody/nicht eingeloggt
 		if (!is_object($user)){
 			if (Navigation::hasItem('/course/main/courses')){
 				Navigation::removeItem('/course/main/courses');
@@ -170,34 +178,35 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			}
 		}
 
+                //Special Badges
                 //profilenavigation for courseware-badges
-                $this->user         = \User::findCurrent(); // current logged in user
-                $this->current_user = \User::findByUsername(Request::username('username', $this->user->username)); // current selected user
-                
-                //falls Profil des eingeloggten Nutzers, schauen ob er schon Badges hat
-                if ($this->current_user['user_id'] == $this->user->id && !$this->current_user['locked']) {
-                    $values = array('user_id' => $this->user->id);
-                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
-                    $statement = \DBManager::get()->prepare($query);
-                    $statement->execute($values);
-                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
-                
-                //falls profil eines fremden nutzers schauen ob er schon Badges hat
-                } else {
-                    $values = array('user_id' => $this->current_user['user_id']);
-                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
-                    $statement = \DBManager::get()->prepare($query);
-                    $statement->execute($values);
-                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
-                }
-                
-                
-                if (Navigation::hasItem("/profile") && 
-                    $this->badges) {
-                        $nav = new AutoNavigation(_("Badges"), PluginEngine::getURL($this, 
-                        array('user_id' => $this->current_user['user_id']), "badges"));
-                        Navigation::addItem("/profile/badges", $nav);
-                }
+//                $this->user         = \User::findCurrent(); // current logged in user
+//                $this->current_user = \User::findByUsername(Request::username('username', $this->user->username)); // current selected user
+//                
+//                //falls Profil des eingeloggten Nutzers, schauen ob er schon Badges hat
+//                if ($this->current_user['user_id'] == $this->user->id && !$this->current_user['locked']) {
+//                    $values = array('user_id' => $this->user->id);
+//                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+//                    $statement = \DBManager::get()->prepare($query);
+//                    $statement->execute($values);
+//                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+//                
+//                //falls profil eines fremden nutzers schauen ob er schon Badges hat
+//                } else {
+//                    $values = array('user_id' => $this->current_user['user_id']);
+//                    $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id" ;
+//                    $statement = \DBManager::get()->prepare($query);
+//                    $statement->execute($values);
+//                    $this->badges = $statement->fetchAll(\PDO::FETCH_ASSOC);
+//                }
+//                
+//                
+//                if (Navigation::hasItem("/profile") && 
+//                    $this->badges) {
+//                        $nav = new AutoNavigation(_("Badges"), PluginEngine::getURL($this, 
+//                        array('user_id' => $this->current_user['user_id']), "badges"));
+//                        Navigation::addItem("/profile/badges", $nav);
+//                }
 		
 
 		
