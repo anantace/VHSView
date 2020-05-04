@@ -5,7 +5,7 @@ require_once 'lib/PatchTemplateFactory.php';
 class VHSViewPlugin extends StudipPlugin implements SystemPlugin 
 {
 
-	CONST URL = "osnabrueck.elan-ev.de/";
+	CONST URL = "wesermarsch.elan-ev.de/";
 	
 	public function __construct() {
 		
@@ -27,16 +27,30 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		}
                 
-        //Kontakte verschieben zum Messaging, erfordert auch Änderung in controllers/contact.php
+        //Kontakte verschieben zum Messaging, erfordert auch Ã„nderung in controllers/contact.php
 		if (Navigation::hasItem('/messaging')){
                     $navigation = new Navigation(_('Kontakte'), 'dispatch.php/contact');
                     Navigation::getItem('/messaging')->addSubNavigation('contacts', $navigation);
         }
            
                 
-		//Wer kein Admin ist erhält eine stark reduzierte Navigation
+		//Wer kein Admin ist erhÃ¤lt eine stark reduzierte Navigation
 		if (!$perm->have_perm('admin') && is_object($user)) {
 			$this->setupNavigationForNoAdmin();
+		}
+		
+		if ($user->id == 'nobody'){
+			if (Navigation::hasItem('/course/main/courses')){
+				Navigation::removeItem('/course/main/courses');
+			}
+			
+			if (Navigation::hasItem('/course/main/schedule')){
+				Navigation::removeItem('/course/main/schedule');
+			}
+			
+			if (Navigation::hasItem('/course/main/schedule')){
+				Navigation::removeItem('/course/main/schedule');
+			}
 		}
         
 	
@@ -121,7 +135,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
         if (Navigation::hasItem('/start/search')){
             Navigation::removeItem('/start/search');
         }
-        //StudIP default Startseite aufräumen            
+        //StudIP default Startseite aufrÃ¤umen            
         if (Navigation::hasItem('/start')){
             if (Navigation::hasItem('/start/community')){
                 Navigation::removeItem('/start/community');
@@ -203,7 +217,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
     
     public function getVHSColors(){
         return array(//red 
-        '#1587a1', //türkis
+        '#1587a1', //tÃ¼rkis
         '#278420', //green
         '#1920a8', //darkblue
         '#e75f21', //orange
