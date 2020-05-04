@@ -167,7 +167,7 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		}
 		
 		
-		//f�r nobody/nicht eingeloggt
+		//für nobody/nicht eingeloggt
 		if ($user->id == 'nobody'){
 			if (Navigation::hasItem('/course/main/courses')){
 				Navigation::removeItem('/course/main/courses');
