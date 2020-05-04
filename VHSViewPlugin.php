@@ -12,22 +12,22 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 		parent::__construct();
 		
 		// instantiate patching template factory
-        $GLOBALS['template_factory'] = new VHS\PatchTemplateFactory(
-            $GLOBALS['template_factory'],
-            realpath($this->getPluginPath() . '/templates')
-        );
+        	$GLOBALS['template_factory'] = new VHS\PatchTemplateFactory(
+            	$GLOBALS['template_factory'],
+            	realpath($this->getPluginPath() . '/templates')
+       		);
 		
 		global $perm, $user;
 		$username = Request::get('username', $auth->auth['uname']);
-        $referer = $_SERVER['REQUEST_URI'];
+        	$referer = $_SERVER['REQUEST_URI'];
 
-        //brauch ich das wirklich?
+        	//brauch ich das wirklich?
 		$path = explode(VHSViewPlugin::URL, $referer);
 		if ( $referer!=str_replace("index.php","",$referer) || $path[1] == "" ){
 			PageLayout::addStylesheet($this->getPluginUrl() . '/css/startseite.css');
 		}
                 
-        //Kontakte verschieben zum Messaging, erfordert auch Änderung in controllers/contact.php
+        	//Kontakte verschieben zum Messaging, erfordert auch Änderung in controllers/contact.php
 		if (Navigation::hasItem('/messaging')){
                     $navigation = new Navigation(_('Kontakte'), 'dispatch.php/contact');
                     Navigation::getItem('/messaging')->addSubNavigation('contacts', $navigation);
