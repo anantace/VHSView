@@ -123,7 +123,9 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 					$result = $stmt->fetch();
 					Navigation::getItem('/course')->setURL(URLHelper::getLink("seminar_main.php?cid=". $result['seminar_id']));
 					Navigation::getItem('/course')->setTitle("Mein Kurs");
-				}
+				} else {
+                    Navigation::getItem('/course')->setTitle("Kurse");
+                }
 				
 			}
 			
