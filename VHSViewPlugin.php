@@ -108,6 +108,9 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				if($count == 0 && $my_about->auth_user['perms'] == 'autor'){
 					Navigation::removeItem('/browse');	
 				}
+				if($count > 1){
+                    Navigation::getItem('/browse')->setTitle("Kurse");
+                }
 				
 			}
 			
