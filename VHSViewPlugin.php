@@ -61,6 +61,9 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
             if (Navigation::hasItem('/files_dashboard')){
                 Navigation::getItem('/files_dashboard')->setImage(NULL);
             }
+            if (Navigation::hasItem('/files_dashboard/dashboard')){
+                Navigation::removeItem('/files_dashboard/dashboard');
+            }
 	/**		
 			if (Navigation::hasItem('/course/main/courses')){
 			//	Navigation::removeItem('/course/main/courses');
