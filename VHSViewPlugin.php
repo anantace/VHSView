@@ -71,8 +71,8 @@ class VHSViewPlugin extends StudipPlugin implements SystemPlugin
 				
 			}
 			
-			if (Navigation::hasItem('/schedule')){
-				Navigation::removeItem('/schedule');
+			if (Navigation::hasItem('/calendar')){
+				Navigation::removeItem('/calendar');
 			}
 			
 			if (Navigation::hasItem('/community')){
